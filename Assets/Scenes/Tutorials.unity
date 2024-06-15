@@ -432,6 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 4671286273405927048, guid: c7af876d195f8a642a06148e19647b8a, type: 3}
+  PhysxBall: {fileID: 7859733132810927637, guid: 42966cf5946903249b641b96b616d78b, type: 3}
 --- !u!1 &1818354983
 GameObject:
   m_ObjectHideFlags: 0
