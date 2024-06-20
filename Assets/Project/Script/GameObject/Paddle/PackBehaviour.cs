@@ -16,7 +16,7 @@ public class PackBehaviour : MonoBehaviour {
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Paddle") {
             Rigidbody rigidbody = GetComponent<Rigidbody>();
-            rigidbody.velocity = rigidbody.velocity * 11f;
+            rigidbody.velocity = rigidbody.velocity;
         }
     }
 }
