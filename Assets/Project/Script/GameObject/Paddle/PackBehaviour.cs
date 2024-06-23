@@ -3,9 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PackBehaviour : MonoBehaviour {
+    public float maxSpeed = 100f;
+    public float minSpeed = 1f;
+
+    private Rigidbody rb;
+    [SerializeField] private float vel;
 
     public void Set() {
+        rb = GetComponent<Rigidbody>();
+    }
 
+    void FixedUpdate() {
+        Vector3 velocity = rb.velocity;
+
+        float speed = velocity.magnitude;
+
+        if (speed > maxSpeed) {
+            velocity = velocity.normalized * maxSpeed;
+        }
+        else if (speed < minSpeed && speed > 0) {
+            velocity = velocity.normalized * minSpeed;
+        }
+
+        rb.velocity = velocity;
+        vel = velocity.magnitude;
     }
 
     void OnCollisionEnter(Collision collision) {
