@@ -3,20 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PackBehaviour : MonoBehaviour {
-    // Start is called before the first frame update
-    void Start() {
+    public float maxSpeed = 100f;
+    public float minSpeed = 1f;
 
+    private Rigidbody rb;
+    [SerializeField] private float vel;
+
+    public void Set() {
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
+        Vector3 velocity = rb.velocity;
 
+        float speed = velocity.magnitude;
+
+        if (speed > maxSpeed) {
+            velocity = velocity.normalized * maxSpeed;
+        }
+        else if (speed < minSpeed && speed > 0) {
+            velocity = velocity.normalized * minSpeed;
+        }
+
+        rb.velocity = velocity;
+        vel = velocity.magnitude;
     }
 
     void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "Paddle") {
-            Rigidbody rigidbody = GetComponent<Rigidbody>();
-            rigidbody.velocity = rigidbody.velocity;
+        switch (collision.gameObject.tag) {
+            case "Paddle":
+                Rigidbody rigidbody = GetComponent<Rigidbody>();
+                if (rigidbody.velocity.magnitude != 0.0f) {
+                    rigidbody.velocity = rigidbody.velocity * 1.2f;
+                }
+                break;
+            case "Floor":
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                break;
+            case "Goal":
+                if(collision.gameObject.name == "MyGoal") {
+                    LifeManager.instance.PlayerDamage();
+                }else if(collision.gameObject.name == "EnemyGoal") {
+                    LifeManager.instance.EnemyDamage();
+                }
+                break;
         }
     }
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Paddle
   - Pack
+  - Floor
+  - Goal
   layers:
   - Default
   - TransparentFX
