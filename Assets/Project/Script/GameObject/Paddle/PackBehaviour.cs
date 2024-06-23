@@ -11,8 +11,9 @@ public class PackBehaviour : MonoBehaviour {
     void OnCollisionEnter(Collision collision) {
         switch (collision.gameObject.tag) {
             case "Paddle":
-                Rigidbody rigidbody = GetComponent<Rigidbody>();
-                rigidbody.velocity = rigidbody.velocity;
+                //Rigidbody rigidbody = GetComponent<Rigidbody>();
+                //rigidbody.velocity = rigidbody.velocity * 1.2f;
+                if(collision.gameObject.name == "EnemyPaddle") { Debug.Log("Enemy Paddle"); }
                 break;
             case "Floor":
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
@@ -22,7 +23,6 @@ public class PackBehaviour : MonoBehaviour {
                     LifeManager.instance.PlayerDamage();
                 }else if(collision.gameObject.name == "EnemyGoal") {
                     LifeManager.instance.EnemyDamage();
-                    Debug.Log("enemy goal");
                 }
                 break;
         }
