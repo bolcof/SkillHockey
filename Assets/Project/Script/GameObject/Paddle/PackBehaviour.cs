@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PackBehaviour : MonoBehaviour {
-    // Start is called before the first frame update
-    void Start() {
 
-    }
-
-    // Update is called once per frame
-    void Update() {
+    public void Set() {
 
     }
 
     void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "Paddle") {
-            Rigidbody rigidbody = GetComponent<Rigidbody>();
-            rigidbody.velocity = rigidbody.velocity;
+        switch (collision.gameObject.tag) {
+            case "Paddle":
+                Rigidbody rigidbody = GetComponent<Rigidbody>();
+                rigidbody.velocity = rigidbody.velocity;
+                break;
+            case "Floor":
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                break;
         }
     }
 }
