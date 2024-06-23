@@ -32,9 +32,10 @@ public class PackBehaviour : MonoBehaviour {
     void OnCollisionEnter(Collision collision) {
         switch (collision.gameObject.tag) {
             case "Paddle":
-                //Rigidbody rigidbody = GetComponent<Rigidbody>();
-                //rigidbody.velocity = rigidbody.velocity * 1.2f;
-                if(collision.gameObject.name == "EnemyPaddle") { Debug.Log("Enemy Paddle"); }
+                Rigidbody rigidbody = GetComponent<Rigidbody>();
+                if (rigidbody.velocity.magnitude != 0.0f) {
+                    rigidbody.velocity = rigidbody.velocity * 1.2f;
+                }
                 break;
             case "Floor":
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
