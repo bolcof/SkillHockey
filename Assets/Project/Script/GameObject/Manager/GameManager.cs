@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
-    [SerializeField] private PackBehaviour packObject;
+    [SerializeField] private GameObject packObject;
     public PackBehaviour currentPack;
 
     void Awake() {
@@ -20,11 +20,15 @@ public class GameManager : MonoBehaviour {
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.R)) {
-            if(currentPack != null) {
-                Destroy(currentPack.gameObject);
-            }
-            currentPack = Instantiate(packObject).GetComponent<PackBehaviour>();
-            currentPack.Set();
+            ResetPack();
         }
+    }
+
+    public void ResetPack() {
+        if (currentPack != null) {
+            Destroy(currentPack.gameObject);
+        }
+        currentPack = Instantiate(packObject).GetComponent<PackBehaviour>();
+        currentPack.Set();
     }
 }
