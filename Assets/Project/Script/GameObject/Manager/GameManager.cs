@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void GameStart() {
+        currentPack = Instantiate(packObject).GetComponent<PackBehaviour>();
+        currentPack.Set();
+    }
+
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.R)) {
