@@ -17,5 +17,10 @@ public class ViewManager : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+
+        titleView.gameObject.SetActive(true);
+        charactorSelectView.gameObject.SetActive(false);
+        playingView.gameObject.SetActive(false);
+        resultView.gameObject.SetActive(false);
     }
 }
