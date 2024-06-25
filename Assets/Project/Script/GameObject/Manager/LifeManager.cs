@@ -18,16 +18,27 @@ public class LifeManager : MonoBehaviour {
         myLife--;
         GameManager.instance.ResetPack();
         ChangeLabel();
+        if (myLife == 0) {
+            EndGame(false);
+        }
     }
 
     public void EnemyDamage() {
         enemyLife--;
         GameManager.instance.ResetPack();
         ChangeLabel();
+        if (enemyLife == 0) {
+            EndGame(true);
+        }
     }
 
     private void ChangeLabel() {
         string labelTest = myLife.ToString() + " - " + enemyLife.ToString();
         ViewManager.instance.playingView.testLifeLabel.text = labelTest;
+    }
+
+    private void EndGame(bool playerWin) {
+        ViewManager.instance.playingView.gameObject.SetActive(false);
+        ViewManager.instance.resultView.gameObject.SetActive(true);
     }
 }
