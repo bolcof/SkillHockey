@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleView: {fileID: 1212309427132541440}
-  playingView: {fileID: 767628042239612951}
   charactorSelectView: {fileID: 7079207375895993505}
+  playingView: {fileID: 767628042239612951}
   resultView: {fileID: 1550967936518534831}
 --- !u!1001 &1329980399822547124
 PrefabInstance:
@@ -214,6 +214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TitleView
       objectReference: {fileID: 0}
+    - target: {fileID: 2482147511563433252, guid: 1df4f232feb6bd4419d2f8eb7fc2d0a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -246,6 +250,10 @@ PrefabInstance:
     - target: {fileID: 8068108062952110531, guid: 09681275663d8ae458f317f2fda60391, type: 3}
       propertyPath: m_Name
       value: PlayingView
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068108062952110531, guid: 09681275663d8ae458f317f2fda60391, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9075533476316051497, guid: 09681275663d8ae458f317f2fda60391, type: 3}
       propertyPath: m_Pivot.x
@@ -472,6 +480,10 @@ PrefabInstance:
     - target: {fileID: 3255651626560306096, guid: 3826d4d85a04d1f42aec0c2bebae23d6, type: 3}
       propertyPath: m_Name
       value: CharactorSelectView
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255651626560306096, guid: 3826d4d85a04d1f42aec0c2bebae23d6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6358224900779567536, guid: 3826d4d85a04d1f42aec0c2bebae23d6, type: 3}
       propertyPath: m_Pivot.x
