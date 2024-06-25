@@ -481,6 +481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharactorSelectView
       objectReference: {fileID: 0}
+    - target: {fileID: 3255651626560306096, guid: 3826d4d85a04d1f42aec0c2bebae23d6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6358224900779567536, guid: 3826d4d85a04d1f42aec0c2bebae23d6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
