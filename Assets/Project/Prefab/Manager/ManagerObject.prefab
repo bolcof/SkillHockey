@@ -60,8 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9535f16dd961c1744a98dac6be1f8557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myLife: 7
-  enemyLife: 7
+  myLife: 3
+  enemyLife: 3
 --- !u!114 &8565683049623136239
 MonoBehaviour:
   m_ObjectHideFlags: 0
