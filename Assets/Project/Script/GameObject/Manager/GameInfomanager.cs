@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSetting : MonoBehaviour {
-    public static PlayerSetting instance;
+public class GameInfomanager : MonoBehaviour {
+    public static GameInfomanager instance;
 
     public enum GameMode {
         Local,

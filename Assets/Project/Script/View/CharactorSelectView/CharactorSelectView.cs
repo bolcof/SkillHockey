@@ -7,15 +7,15 @@ public class CharactorSelectView : MonoBehaviour {
     public GameObject onePlayerPanel, twoPlayerPanel;
     [SerializeField] private List<Button> charactorButtonList = new List<Button>();
 
-    public void Set(PlayerSetting.GameMode gameMode) {
+    public void Set(GameInfomanager.GameMode gameMode) {
         switch(gameMode) {
-            case PlayerSetting.GameMode.Online:
-            case PlayerSetting.GameMode.CPU:
-            case PlayerSetting.GameMode.Story:
+            case GameInfomanager.GameMode.Online:
+            case GameInfomanager.GameMode.CPU:
+            case GameInfomanager.GameMode.Story:
                 onePlayerPanel.SetActive(true);
                 twoPlayerPanel.SetActive(false);
                 break;
-            case PlayerSetting.GameMode.Local:
+            case GameInfomanager.GameMode.Local:
                 onePlayerPanel.SetActive(false);
                 twoPlayerPanel.SetActive(true);
                 break;
