@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CharactorSelectView : MonoBehaviour {
-    public GameObject onePlayerPanel, twoPlayerPanel;
+    public GameObject demoPlayerPanel;
     [SerializeField] private List<Button> charactorButtonList = new List<Button>();
 
     public void Set(GameInfomanager.GameMode gameMode) {
@@ -12,12 +12,10 @@ public class CharactorSelectView : MonoBehaviour {
             case GameInfomanager.GameMode.Online:
             case GameInfomanager.GameMode.CPU:
             case GameInfomanager.GameMode.Story:
-                onePlayerPanel.SetActive(true);
-                twoPlayerPanel.SetActive(false);
+                demoPlayerPanel.SetActive(true);
                 break;
             case GameInfomanager.GameMode.Local:
-                onePlayerPanel.SetActive(false);
-                twoPlayerPanel.SetActive(true);
+                demoPlayerPanel.SetActive(false);
                 break;
         }
     }
