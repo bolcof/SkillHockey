@@ -25,7 +25,7 @@ public class CharactorSelectView : MonoBehaviour {
     public void TestGoPlay() {
         ViewManager.instance.playingView.gameObject.SetActive(true);
         ViewManager.instance.playingView.Set();
-        GameManager.instance.GameStart();
+        GameObjectManager.instance.GameStart();
         gameObject.SetActive(false);
     }
 }

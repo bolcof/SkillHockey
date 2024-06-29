@@ -16,7 +16,7 @@ public class LifeManager : MonoBehaviour {
 
     public void PlayerDamage() {
         myLife--;
-        GameManager.instance.ResetPack();
+        GameObjectManager.instance.ResetPack();
         ChangeLabel();
         if (myLife == 0) {
             EndGame(false);
@@ -25,7 +25,7 @@ public class LifeManager : MonoBehaviour {
 
     public void EnemyDamage() {
         enemyLife--;
-        GameManager.instance.ResetPack();
+        GameObjectManager.instance.ResetPack();
         ChangeLabel();
         if (enemyLife == 0) {
             EndGame(true);
