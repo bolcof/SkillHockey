@@ -286,7 +286,7 @@ TextureImporter:
         width: 257
         height: 245
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,6 +294,27 @@ TextureImporter:
       bones: []
       spriteID: 9c0d3698bb08bf6478a84b0cadb4005c
       internalID: -487328217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Round480
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 1068
+        width: 255
+        height: 480
+      alignment: 9
+      pivot: {x: 0.027, y: 0.5}
+      border: {x: 4, y: 0, z: 245, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcb173c2160b0f44193550585ce4d1fd
+      internalID: -2038266070
       vertices: []
       indices: 
       edges: []
@@ -318,6 +339,7 @@ TextureImporter:
       Heart: -487328217
       HeartFrame: -60169219
       PlayingView_CharaBack: -2129642706
+      Round480: -2038266070
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

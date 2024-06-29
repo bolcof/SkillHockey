@@ -5,9 +5,13 @@ using TMPro;
 using DG.Tweening;
 
 public class PlayingView : MonoBehaviour {
-    public TextMeshProUGUI testLifeLabel;
+    public TextMeshProUGUI timeLabel;
 
     public void Set() {
-        testLifeLabel.text = LifeManager.instance.myLife.ToString() + " - " + LifeManager.instance.enemyLife.ToString();
+
+    }
+
+    private void Update() {
+        
     }
 }

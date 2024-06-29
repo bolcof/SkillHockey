@@ -34,7 +34,6 @@ public class LifeManager : MonoBehaviour {
 
     private void ChangeLabel() {
         string labelTest = myLife.ToString() + " - " + enemyLife.ToString();
-        ViewManager.instance.playingView.testLifeLabel.text = labelTest;
     }
 
     private void EndGame(bool playerWin) {
