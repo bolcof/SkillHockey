@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class LifeGuage : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class LifeGuage : MonoBehaviour {
+    [SerializeField] private List<Image> cells;
+    private int maxLife, currentLife;
+
+    public void Set() {
+        maxLife = cells.Count;
+        currentLife = maxLife;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void Damage(int damage) {
+        for (int i = 0; i < damage; i++) {
+            if (currentLife > 0) {
+                cells[currentLife - 1].gameObject.SetActive(false);
+                currentLife--;
+            }
+        }
     }
 }

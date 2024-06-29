@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharactorIcon : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class CharactorIcon : MonoBehaviour {
+    [SerializeField] private List<GameObject> charactorImages = new List<GameObject>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void Set(int charactorId) {
+        foreach(var ch in charactorImages) {
+            ch.gameObject.SetActive(false);
+        }
+        charactorImages[charactorId].SetActive(true);
     }
 }
