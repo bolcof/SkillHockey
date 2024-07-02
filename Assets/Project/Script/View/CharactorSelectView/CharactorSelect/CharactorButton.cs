@@ -5,13 +5,17 @@ using UnityEngine.EventSystems;
 
 public class CharactorButton : MonoBehaviour {
     [SerializeField] int charaId;
+    [SerializeField] bool isAvailable;
 
     public void HoverCursor() {
-        ViewManager.instance.charactorSelectView.ChangeSelectingChacactor(charaId);
-        Debug.Log("hovered " + charaId.ToString());
+        if (isAvailable) {
+            ViewManager.instance.charactorSelectView.ChangeSelectingChacactor(charaId);
+        }
     }
 
     public void PushButton() {
-        CharactorSelectManager.instance.DecideCharactor(charaId);
+        if (isAvailable) {
+            CharactorSelectManager.instance.DecideCharactor(charaId);
+        }
     }
 }
