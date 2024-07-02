@@ -8,7 +8,7 @@ public class CharactorSelectView : MonoBehaviour {
     [SerializeField] private List<Button> charactorButtonList = new List<Button>();
 
     public void Set(GameInfomanager.GameMode gameMode) {
-        switch(gameMode) {
+        switch (gameMode) {
             case GameInfomanager.GameMode.Online:
             case GameInfomanager.GameMode.CPU:
             case GameInfomanager.GameMode.Story:
@@ -18,6 +18,10 @@ public class CharactorSelectView : MonoBehaviour {
                 demoPlayerPanel.SetActive(false);
                 break;
         }
+    }
+
+    public void ChangeSelectingChacactor(int charaId) {
+
     }
 
     public void TestGoPlay() {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class LifeManager : MonoBehaviour {
     public static LifeManager instance;
     public int myLife, enemyLife;
+
     void Awake() {
         if (instance == null) {
             instance = this;
