@@ -7,6 +7,6 @@ public class CharactorData {
     public int id;
     public string name;
     public string story;
-    public int specialSkillId;
+    public List<int> SkillIds = new List<int>();
     public Sprite selectingImage;
 }

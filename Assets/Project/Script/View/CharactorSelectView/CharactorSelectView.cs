@@ -4,27 +4,35 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CharactorSelectView : MonoBehaviour {
-    public GameObject demoPlayerPanel;
+    public GameObject demoCharactorSelectPanel;
     [SerializeField] private List<Button> charactorButtonList = new List<Button>();
+
+    [SerializeField] private Button startButton;
+    [SerializeField] private PlayerInfoFrame playerInfoFrame;
 
     public void Set(GameInfomanager.GameMode gameMode) {
         switch (gameMode) {
             case GameInfomanager.GameMode.Online:
             case GameInfomanager.GameMode.CPU:
             case GameInfomanager.GameMode.Story:
-                demoPlayerPanel.SetActive(true);
+                demoCharactorSelectPanel.SetActive(true);
                 break;
             case GameInfomanager.GameMode.Local:
-                demoPlayerPanel.SetActive(false);
+                demoCharactorSelectPanel.SetActive(false);
                 break;
         }
+        startButton.gameObject.SetActive(false);
     }
 
     public void ChangeSelectingChacactor(int charaId) {
-
+        playerInfoFrame.ChangeHighlightedCharactor(charaId);
     }
 
-    public void TestGoPlay() {
+    public void EnableStartButton() {
+        startButton.gameObject.SetActive(true);
+    }
+
+    public void PushStartButton() {
         ViewManager.instance.playingView.gameObject.SetActive(true);
         ViewManager.instance.playingView.Set();
         GameObjectManager.instance.GameStart();

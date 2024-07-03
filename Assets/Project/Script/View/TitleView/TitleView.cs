@@ -8,5 +8,7 @@ public class TitleView : MonoBehaviour {
         ViewManager.instance.charactorSelectView.gameObject.SetActive(true);
         ViewManager.instance.charactorSelectView.Set(GameInfomanager.GameMode.CPU);
         gameObject.SetActive(false);
+
+        GameInfomanager.instance.currentGameMode = GameInfomanager.GameMode.CPU;
     }
 }
