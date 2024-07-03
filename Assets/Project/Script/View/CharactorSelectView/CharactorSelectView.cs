@@ -9,6 +9,7 @@ public class CharactorSelectView : MonoBehaviour {
 
     [SerializeField] private Button startButton;
     [SerializeField] private PlayerInfoFrame playerInfoFrame;
+    public bool hasSelected;
 
     public void Set(GameInfomanager.GameMode gameMode) {
         switch (gameMode) {
@@ -22,6 +23,10 @@ public class CharactorSelectView : MonoBehaviour {
                 break;
         }
         startButton.gameObject.SetActive(false);
+        hasSelected = false;
+        foreach (var b in charactorButtonList) {
+            b.interactable = true;
+        }
     }
 
     public void ChangeSelectingChacactor(int charaId) {
@@ -30,6 +35,10 @@ public class CharactorSelectView : MonoBehaviour {
 
     public void EnableStartButton() {
         startButton.gameObject.SetActive(true);
+        hasSelected = true;
+        foreach (var b in charactorButtonList) {
+            b.interactable = false;
+        }
     }
 
     public void PushStartButton() {

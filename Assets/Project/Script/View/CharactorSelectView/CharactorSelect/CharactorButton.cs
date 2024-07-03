@@ -8,13 +8,13 @@ public class CharactorButton : MonoBehaviour {
     [SerializeField] bool isAvailable;
 
     public void HoverCursor() {
-        if (isAvailable) {
+        if (isAvailable && !ViewManager.instance.charactorSelectView.hasSelected) {
             ViewManager.instance.charactorSelectView.ChangeSelectingChacactor(charaId);
         }
     }
 
     public void PushButton() {
-        if (isAvailable) {
+        if (isAvailable && !ViewManager.instance.charactorSelectView.hasSelected) {
             GameInfomanager.instance.DecideCharactor(charaId);
         }
     }
