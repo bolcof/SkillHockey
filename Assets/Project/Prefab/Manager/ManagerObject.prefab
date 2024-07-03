@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dc4ed5d386c5f458667f95ee579908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSelectCharactorId: -1
   currentGameMode: 0
 --- !u!114 &7470146214729454478
 MonoBehaviour:
@@ -73,5 +74,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9535f16dd961c1744a98dac6be1f8557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myLife: 3
-  enemyLife: 3
+  myLife: 8
+  enemyLife: 8

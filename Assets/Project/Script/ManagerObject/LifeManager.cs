@@ -18,7 +18,6 @@ public class LifeManager : MonoBehaviour {
     public void PlayerDamage() {
         myLife--;
         GameObjectManager.instance.ResetPack();
-        ChangeLabel();
         if (myLife == 0) {
             EndGame(false);
         }
@@ -27,14 +26,9 @@ public class LifeManager : MonoBehaviour {
     public void EnemyDamage() {
         enemyLife--;
         GameObjectManager.instance.ResetPack();
-        ChangeLabel();
         if (enemyLife == 0) {
             EndGame(true);
         }
-    }
-
-    private void ChangeLabel() {
-        string labelTest = myLife.ToString() + " - " + enemyLife.ToString();
     }
 
     private void EndGame(bool playerWin) {

@@ -9,6 +9,7 @@ public class PlayingView : MonoBehaviour {
     public PlayerInfo myPlayerInfo, enemyPlayerInfo;
 
     public void Set() {
-
+        myPlayerInfo.Set();
+        enemyPlayerInfo.Set();
     }
 }
