@@ -39,5 +39,8 @@ public class ResultView : MonoBehaviour {
     public void PushTitle() {
         ViewManager.instance.titleView.gameObject.SetActive(true);
         gameObject.SetActive(false);
+
+        GameInfoManager.instance.ResetWorld();
+        GameObjectManager.instance.ResetWorld();
     }
 }

@@ -20,6 +20,7 @@ public class GameObjectManager : MonoBehaviour {
     public void GameStart() {
         currentPack = Instantiate(packObject).GetComponent<PackBehaviour>();
         currentPack.Set();
+        LifeManager.instance.Set();
     }
 
 
@@ -35,5 +36,11 @@ public class GameObjectManager : MonoBehaviour {
         }
         currentPack = Instantiate(packObject).GetComponent<PackBehaviour>();
         currentPack.Set();
+    }
+
+    public void ResetWorld() {
+        if (currentPack != null) {
+            Destroy(currentPack.gameObject);
+        }
     }
 }

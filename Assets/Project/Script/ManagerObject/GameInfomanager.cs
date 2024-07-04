@@ -29,4 +29,10 @@ public class GameInfoManager : MonoBehaviour {
         currentSelectCharactorId = charaId;
         ViewManager.instance.charactorSelectView.EnableStartButton();
     }
+
+    public void ResetWorld() {
+        LifeManager.instance.Reset();
+        currentSelectCharactorId = -1;
+        enemyCharactorId = -1;
+    }
 }
