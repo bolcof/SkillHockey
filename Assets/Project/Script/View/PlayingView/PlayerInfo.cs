@@ -21,8 +21,13 @@ public class PlayerInfo : MonoBehaviour {
         }
     }
 
-    public void LifeChange() {
-
+    public void LifeChange(int life) {
+        foreach (var l in lifeMarkers) {
+            l.SetActive(false);
+        }
+        for (int i = 0; i < life; i++) {
+            lifeMarkers[i].SetActive(true);
+        }
     }
 
     public void SetGuage() {
