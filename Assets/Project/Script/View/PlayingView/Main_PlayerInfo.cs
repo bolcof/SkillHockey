@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerInfo : MonoBehaviour {
+public class Main_PlayerInfo : MonoBehaviour {
     [SerializeField] private List<GameObject> charactorSprites = new List<GameObject>();
     [SerializeField] private List<GameObject> lifeMarkers = new List<GameObject>();
     [SerializeField] private Image guage;

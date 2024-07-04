@@ -7,10 +7,10 @@ using TMPro;
 
 public class ResultView : MonoBehaviour {
     [SerializeField] private Image background;
-    [SerializeField] private Image winnerImage;
+    [SerializeField] private List<GameObject> winnerImageObject, loserImageObject;
     [SerializeField] private TextMeshProUGUI operatorLabel, winnerLabel, resultLabel;
 
-    public void Set() {
+    public void Set(int winnerCharaId, int loserCharaId) {
 
     }
 

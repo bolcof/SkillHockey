@@ -8,7 +8,7 @@ public class CharactorSelectView : MonoBehaviour {
     [SerializeField] private List<Button> charactorButtonList = new List<Button>();
 
     [SerializeField] private Button startButton;
-    [SerializeField] private PlayerInfoFrame playerInfoFrame;
+    [SerializeField] private CharactorSelect_PlayerInfoFrame playerInfoFrame;
     public bool hasSelected;
 
     public void Set(GameInfomanager.GameMode gameMode) {

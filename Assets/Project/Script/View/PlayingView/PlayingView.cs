@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class PlayingView : MonoBehaviour {
     public TextMeshProUGUI timeLabel;
-    public PlayerInfo myPlayerInfo, enemyPlayerInfo;
+    public Main_PlayerInfo myPlayerInfo, enemyPlayerInfo;
 
     public void Set() {
         myPlayerInfo.Set();

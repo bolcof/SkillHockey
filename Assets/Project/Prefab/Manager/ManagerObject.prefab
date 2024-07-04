@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8565683049623136239}
   - component: {fileID: 7470146214729454478}
   - component: {fileID: 2528112651135547439}
+  - component: {fileID: 6147965441330355135}
   m_Layer: 0
   m_Name: ManagerObject
   m_TagString: Untagged
@@ -76,3 +77,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLife: 8
   enemyLife: 8
+--- !u!114 &6147965441330355135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3184124279708434805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aad25a1e7e9942a7a32d8a9793b6f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charactors:
+  - id: 0
+    name: AAA AAA
+    story: A story
+    SkillIds: 
+    selectingImage: {fileID: 21300000, guid: 770a3c6ccb173e54eb3122bbb0af0568, type: 3}
+  - id: 1
+    name: BBB BBB
+    story: B story
+    SkillIds: 
+    selectingImage: {fileID: 21300000, guid: 17fd9ae7176856140ac368a8da729144, type: 3}
+  skillDatas: []
