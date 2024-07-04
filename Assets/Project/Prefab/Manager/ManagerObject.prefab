@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSelectCharactorId: -1
+  enemyCharactorId: -1
   currentGameMode: 0
 --- !u!114 &7470146214729454478
 MonoBehaviour:
@@ -77,6 +78,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLife: 8
   enemyLife: 8
+  myDefaultLife: 8
+  enemyDefaultLife: 8
 --- !u!114 &6147965441330355135
 MonoBehaviour:
   m_ObjectHideFlags: 0

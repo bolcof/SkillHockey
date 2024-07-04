@@ -5,6 +5,7 @@ using UnityEngine;
 public class LifeManager : MonoBehaviour {
     public static LifeManager instance;
     public int myLife, enemyLife;
+    public int myDefaultLife, enemyDefaultLife;
 
     void Awake() {
         if (instance == null) {
@@ -13,6 +14,11 @@ public class LifeManager : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+    }
+
+    public void Set() {
+        myLife = myDefaultLife;
+        enemyLife = enemyDefaultLife;
     }
 
     public void PlayerDamage() {
@@ -37,5 +43,10 @@ public class LifeManager : MonoBehaviour {
         ViewManager.instance.playingView.gameObject.SetActive(false);
         ViewManager.instance.resultView.gameObject.SetActive(true);
         ViewManager.instance.resultView.Set(GameInfoManager.instance.currentSelectCharactorId, GameInfoManager.instance.enemyCharactorId, playerWin);
+    }
+
+    public void Reset() {
+        myLife = myDefaultLife;
+        enemyLife = enemyDefaultLife;
     }
 }
