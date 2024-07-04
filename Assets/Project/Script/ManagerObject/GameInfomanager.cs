@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameInfomanager : MonoBehaviour {
-    public static GameInfomanager instance;
+public class GameInfoManager : MonoBehaviour {
+    public static GameInfoManager instance;
 
     public int currentSelectCharactorId = -1;
     public GameMode currentGameMode;

@@ -11,14 +11,14 @@ public class CharactorSelectView : MonoBehaviour {
     [SerializeField] private CharactorSelect_PlayerInfoFrame playerInfoFrame;
     public bool hasSelected;
 
-    public void Set(GameInfomanager.GameMode gameMode) {
+    public void Set(GameInfoManager.GameMode gameMode) {
         switch (gameMode) {
-            case GameInfomanager.GameMode.Online:
-            case GameInfomanager.GameMode.CPU:
-            case GameInfomanager.GameMode.Story:
+            case GameInfoManager.GameMode.Online:
+            case GameInfoManager.GameMode.CPU:
+            case GameInfoManager.GameMode.Story:
                 demoCharactorSelectPanel.SetActive(true);
                 break;
-            case GameInfomanager.GameMode.Local:
+            case GameInfoManager.GameMode.Local:
                 demoCharactorSelectPanel.SetActive(false);
                 break;
         }

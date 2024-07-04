@@ -15,7 +15,7 @@ public class CharactorButton : MonoBehaviour {
 
     public void PushButton() {
         if (isAvailable && !ViewManager.instance.charactorSelectView.hasSelected) {
-            GameInfomanager.instance.DecideCharactor(charaId);
+            GameInfoManager.instance.DecideCharactor(charaId);
         }
     }
 }

@@ -4,17 +4,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Main_PlayerInfo : MonoBehaviour {
+public class Playing_PlayerInfo : MonoBehaviour {
     [SerializeField] private List<GameObject> charactorSprites = new List<GameObject>();
     [SerializeField] private List<GameObject> lifeMarkers = new List<GameObject>();
     [SerializeField] private Image guage;
     [SerializeField] private TextMeshProUGUI guageLevel;
 
-    public void Set() {
+    public void Set(int charactorId) {
         foreach (var obj in charactorSprites) {
             obj.SetActive(false);
         }
-        charactorSprites[GameInfomanager.instance.currentSelectCharactorId].SetActive(true);
+        charactorSprites[charactorId].SetActive(true);
 
         foreach(var life in lifeMarkers) {
             life.SetActive(true);
