@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameObjectManager : MonoBehaviour {
 
-    public static GameManager instance;
+    public static GameObjectManager instance;
     [SerializeField] private GameObject packObject;
     public PackBehaviour currentPack;
 

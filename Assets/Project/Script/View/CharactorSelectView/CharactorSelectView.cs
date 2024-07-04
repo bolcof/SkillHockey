@@ -4,28 +4,47 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CharactorSelectView : MonoBehaviour {
-    public GameObject onePlayerPanel, twoPlayerPanel;
+    public GameObject demoCharactorSelectPanel;
     [SerializeField] private List<Button> charactorButtonList = new List<Button>();
 
-    public void Set(PlayerSetting.GameMode gameMode) {
-        switch(gameMode) {
-            case PlayerSetting.GameMode.Online:
-            case PlayerSetting.GameMode.CPU:
-            case PlayerSetting.GameMode.Story:
-                onePlayerPanel.SetActive(true);
-                twoPlayerPanel.SetActive(false);
+    [SerializeField] private Button startButton;
+    [SerializeField] private CharactorSelect_PlayerInfoFrame playerInfoFrame;
+    public bool hasSelected;
+
+    public void Set(GameInfoManager.GameMode gameMode) {
+        switch (gameMode) {
+            case GameInfoManager.GameMode.Online:
+            case GameInfoManager.GameMode.CPU:
+            case GameInfoManager.GameMode.Story:
+                demoCharactorSelectPanel.SetActive(true);
                 break;
-            case PlayerSetting.GameMode.Local:
-                onePlayerPanel.SetActive(false);
-                twoPlayerPanel.SetActive(true);
+            case GameInfoManager.GameMode.Local:
+                demoCharactorSelectPanel.SetActive(false);
                 break;
+        }
+        startButton.gameObject.SetActive(false);
+        hasSelected = false;
+        foreach (var b in charactorButtonList) {
+            b.interactable = true;
         }
     }
 
-    public void TestGoPlay() {
+    public void ChangeSelectingChacactor(int charaId) {
+        playerInfoFrame.ChangeHighlightedCharactor(charaId);
+    }
+
+    public void EnableStartButton() {
+        startButton.gameObject.SetActive(true);
+        hasSelected = true;
+        foreach (var b in charactorButtonList) {
+            b.interactable = false;
+        }
+    }
+
+    public void PushStartButton() {
         ViewManager.instance.playingView.gameObject.SetActive(true);
         ViewManager.instance.playingView.Set();
-        GameManager.instance.GameStart();
+        GameObjectManager.instance.GameStart();
         gameObject.SetActive(false);
     }
 }

@@ -702,6 +702,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2504982240414036793, guid: 1db2d5cf8fe22294b9b4302befaf7bd2, type: 3}
   m_PrefabInstance: {fileID: 1844915635}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &995001326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995001328}
+  - component: {fileID: 995001327}
+  m_Layer: 0
+  m_Name: DataHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &995001327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995001326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aad25a1e7e9942a7a32d8a9793b6f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charactors:
+  - id: 0
+    name: AAA
+    story: good cap.
+    specialSkillId: 0
+    selectingImage: {fileID: 0}
+  skillDatas:
+  - id: 0
+    name: Special Skill 01
+    command: 020000000100000003000000020000000100000003000000
+    discription: ssppeecciiaall
+    icon: {fileID: 0}
+    level: 3
+--- !u!4 &995001328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995001326}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1004370067 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5342118899102522772, guid: 88f2038cd6bb42842b929b98542fba88, type: 3}
@@ -1765,8 +1822,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3184124279708434805, guid: b9bc17a5bf3e0f748815c4d4e6ed33a9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 574147623211745912}
   m_SourcePrefab: {fileID: 100100000, guid: b9bc17a5bf3e0f748815c4d4e6ed33a9, type: 3}
+--- !u!1 &574147623211745911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3184124279708434805, guid: b9bc17a5bf3e0f748815c4d4e6ed33a9, type: 3}
+  m_PrefabInstance: {fileID: 574147623211745910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &574147623211745912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574147623211745911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 992c90901ccaa4e43ba2f73ed0893130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2160563968867177770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1775,6 +1852,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 375120263972689900, guid: 6ecf1ba44474fd142b45184b60c0d2a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3446767755764457110, guid: 6ecf1ba44474fd142b45184b60c0d2a9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1858,6 +1939,10 @@ PrefabInstance:
     - target: {fileID: 5366171852710771181, guid: 6ecf1ba44474fd142b45184b60c0d2a9, type: 3}
       propertyPath: m_Name
       value: ViewManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6258746183865594670, guid: 6ecf1ba44474fd142b45184b60c0d2a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1989,3 +2074,4 @@ SceneRoots:
   - {fileID: 574147623211745910}
   - {fileID: 2160563968867177770}
   - {fileID: 910845372}
+  - {fileID: 995001328}

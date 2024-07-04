@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSetting : MonoBehaviour {
-    public static PlayerSetting instance;
+public class DataHolder : MonoBehaviour {
+    public static DataHolder instance;
 
-    public enum GameMode {
-        Local,
-        Online,
-        CPU,
-        Story
-    }
-
-    public GameMode currentGameMode;
+    public List<CharactorData> charactors = new List<CharactorData>();
+    public List<SkillData> skillDatas = new List<SkillData>();
 
     void Awake() {
         if (instance == null) {

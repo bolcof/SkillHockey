@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4447427587436978784}
+  - component: {fileID: 3819629988634484463}
   - component: {fileID: 7470146214729454478}
   - component: {fileID: 2528112651135547439}
-  - component: {fileID: 8565683049623136239}
+  - component: {fileID: 6147965441330355135}
   m_Layer: 0
   m_Name: ManagerObject
   m_TagString: Untagged
@@ -34,6 +35,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3819629988634484463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3184124279708434805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44dc4ed5d386c5f458667f95ee579908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSelectCharactorId: -1
+  currentGameMode: 0
 --- !u!114 &7470146214729454478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,9 +75,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9535f16dd961c1744a98dac6be1f8557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myLife: 3
-  enemyLife: 3
---- !u!114 &8565683049623136239
+  myLife: 8
+  enemyLife: 8
+--- !u!114 &6147965441330355135
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,7 +86,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3184124279708434805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44dc4ed5d386c5f458667f95ee579908, type: 3}
+  m_Script: {fileID: 11500000, guid: 0aad25a1e7e9942a7a32d8a9793b6f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGameMode: 0
+  charactors:
+  - id: 0
+    name: AAA AAA
+    story: A story
+    SkillIds: 
+    selectingImage: {fileID: 21300000, guid: 770a3c6ccb173e54eb3122bbb0af0568, type: 3}
+  - id: 1
+    name: BBB BBB
+    story: B story
+    SkillIds: 
+    selectingImage: {fileID: 21300000, guid: 17fd9ae7176856140ac368a8da729144, type: 3}
+  skillDatas: []
