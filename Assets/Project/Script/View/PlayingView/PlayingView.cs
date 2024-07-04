@@ -10,7 +10,11 @@ public class PlayingView : MonoBehaviour {
 
     public void Set() {
         myPlayerInfo.Set(GameInfoManager.instance.currentSelectCharactorId);
+
+        //TODO: tmp
         int enemyCharaId = 1 - GameInfoManager.instance.currentSelectCharactorId;
+        GameInfoManager.instance.enemyCharactorId = enemyCharaId;
+        
         enemyPlayerInfo.Set(enemyCharaId);
     }
 }

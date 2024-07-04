@@ -36,5 +36,6 @@ public class LifeManager : MonoBehaviour {
     private void EndGame(bool playerWin) {
         ViewManager.instance.playingView.gameObject.SetActive(false);
         ViewManager.instance.resultView.gameObject.SetActive(true);
+        ViewManager.instance.resultView.Set(GameInfoManager.instance.currentSelectCharactorId, GameInfoManager.instance.enemyCharactorId, playerWin);
     }
 }
