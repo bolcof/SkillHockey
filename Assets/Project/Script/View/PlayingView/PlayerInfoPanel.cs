@@ -31,7 +31,6 @@ public class PlayerInfoPanel : MonoBehaviour {
     }
 
     public void SetGuage() {
-
+        //TODO:SetGuage
     }
-
 }

@@ -6,6 +6,10 @@ public class GameInfoManager : MonoBehaviour {
     public static GameInfoManager instance;
 
     public int currentSelectCharactorId = -1;
+    public int currentSkillId_Lv1 = -1;
+    public int currentSkillId_Lv2 = -1;
+    public int currentSkillId_Lv3 = -1;
+
     public int enemyCharactorId = -1;
     public GameMode currentGameMode;
 
@@ -27,6 +31,9 @@ public class GameInfoManager : MonoBehaviour {
 
     public void DecideCharactor(int charaId) {
         currentSelectCharactorId = charaId;
+        currentSkillId_Lv1 = DataHolder.instance.charactors[charaId].SkillIds[0];
+        currentSkillId_Lv2 = DataHolder.instance.charactors[charaId].SkillIds[1];
+        currentSkillId_Lv3 = DataHolder.instance.charactors[charaId].SkillIds[2];
         ViewManager.instance.charactorSelectView.EnableStartButton();
     }
 

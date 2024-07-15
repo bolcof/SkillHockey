@@ -49,6 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSelectCharactorId: -1
+  currentSkillId_Lv1: -1
+  currentSkillId_Lv2: -1
+  currentSkillId_Lv3: -1
   enemyCharactorId: -1
   currentGameMode: 0
 --- !u!114 &7470146214729454478
@@ -107,20 +110,20 @@ MonoBehaviour:
   skillDatas:
   - id: 0
     name: level 1
-    command: 010000000200000003000000
-    discription: 010101
+    command: 000000000000000000000000
+    discription: WWW
     icon: {fileID: 21300000, guid: 2812d32d067e72b468d88f541de80a52, type: 3}
     level: 1
   - id: 1
     name: level 2
-    command: 02000000020000000200000002000000
-    discription: lvlv2
+    command: 01000000010000000100000001000000
+    discription: SSSS
     icon: {fileID: 21300000, guid: 2812d32d067e72b468d88f541de80a52, type: 3}
     level: 2
   - id: 2
     name: Special Skill
-    command: 020000000300000004000000020000000300000004000000
-    discription: SSPPEECCIIAALL
+    command: 020000000300000002000000030000000200000003000000
+    discription: adadad
     icon: {fileID: 21300000, guid: 2812d32d067e72b468d88f541de80a52, type: 3}
     level: 3
 --- !u!114 &5620924697966876232
@@ -136,5 +139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInput: 0
+  enemyTouched: 0
   maxKeyInput: 13
   inputedAllows: 
+  mySkillGuage: 0
+  enemySkillGuage: 0

@@ -41,7 +41,6 @@ public class PackBehaviour : MonoBehaviour {
                 }
                 switch (collision.gameObject.name) {
                     case "PlayerPaddle":
-                        Debug.Log("Touch Paddle");
                         CommandManager.instance.TouchMyPaddle();
                         break;
                     case "EnemyPaddle":
@@ -53,7 +52,6 @@ public class PackBehaviour : MonoBehaviour {
                 switch (collision.gameObject.name) {
                     case "MyWall_Left":
                     case "MyWall_Right":
-                        Debug.Log("Touch Wall");
                         CommandManager.instance.TouchMyWall();
                         break;
                     case "EnemyWall_Left":
