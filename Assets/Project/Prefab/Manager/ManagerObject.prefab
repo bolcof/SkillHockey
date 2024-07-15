@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7470146214729454478}
   - component: {fileID: 2528112651135547439}
   - component: {fileID: 6147965441330355135}
+  - component: {fileID: 5620924697966876232}
   m_Layer: 0
   m_Name: ManagerObject
   m_TagString: Untagged
@@ -122,3 +123,15 @@ MonoBehaviour:
     discription: SSPPEECCIIAALL
     icon: {fileID: 21300000, guid: 2812d32d067e72b468d88f541de80a52, type: 3}
     level: 3
+--- !u!114 &5620924697966876232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3184124279708434805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eba56990606f84ef088e9cb4b3c4bb72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

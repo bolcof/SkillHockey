@@ -299,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Round480_R2
+      name: Round480_R2_A
       rect:
         serializedVersion: 2
         x: 769
@@ -328,7 +328,7 @@ TextureImporter:
         width: 140
         height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 64, y: 64, z: 64, w: 64}
       outline: []
       physicsShape: []
@@ -336,6 +336,27 @@ TextureImporter:
       bones: []
       spriteID: 31e7466aa23f8b64eb98aaed74d31bac
       internalID: -1236878564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Round480_R2_B
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 578
+        width: 256
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 245, y: 0, z: 4, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a9ef8141213c6f4d9e2b88efa7fbb97
+      internalID: 1708607160
       vertices: []
       indices: 
       edges: []
@@ -360,7 +381,8 @@ TextureImporter:
       Heart: -487328217
       HeartFrame: -60169219
       PlayingView_CharaBack: -2129642706
-      Round480_R2: -2038266070
+      Round480_R2_A: -2038266070
+      Round480_R2_B: 1708607160
       Round64_R4: -1236878564
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
