@@ -9,8 +9,11 @@ public class PackBehaviour : MonoBehaviour {
     private Rigidbody rb;
     [SerializeField] private float vel;
 
+    public bool isMyPack;
+
     public void Set() {
         rb = GetComponent<Rigidbody>();
+        isMyPack = false;
     }
 
     void FixedUpdate() {
@@ -36,6 +39,29 @@ public class PackBehaviour : MonoBehaviour {
                 if (rigidbody.velocity.magnitude != 0.0f) {
                     rigidbody.velocity = rigidbody.velocity * 1.2f;
                 }
+                switch (collision.gameObject.name) {
+                    case "PlayerPaddle":
+                        CommandManager.instance.TouchMyPaddle();
+                        break;
+                    case "EnemyPaddle":
+                        CommandManager.instance.enemyTouched = true;
+                        break;
+                }
+                break;
+            case "Wall":
+                switch (collision.gameObject.name) {
+                    case "MyWall_Left":
+                    case "MyWall_Right":
+                        CommandManager.instance.TouchMyWall();
+                        break;
+                    case "EnemyWall_Left":
+                    case "EnemyWall_Right":
+                        CommandManager.instance.enemyTouched = true;
+                        break;
+                    case "SideWall_Left":
+                    case "SideWall_Right":
+                        break;
+                }
                 break;
             case "Floor":
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
@@ -46,6 +72,7 @@ public class PackBehaviour : MonoBehaviour {
                 }else if(collision.gameObject.name == "EnemyGoal") {
                     LifeManager.instance.EnemyDamage();
                 }
+                CommandManager.instance.PackGoaled();
                 break;
         }
     }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7470146214729454478}
   - component: {fileID: 2528112651135547439}
   - component: {fileID: 6147965441330355135}
+  - component: {fileID: 5620924697966876232}
   m_Layer: 0
   m_Name: ManagerObject
   m_TagString: Untagged
@@ -48,6 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSelectCharactorId: -1
+  currentSkillId_Lv1: -1
+  currentSkillId_Lv2: -1
+  currentSkillId_Lv3: -1
   enemyCharactorId: -1
   currentGameMode: 0
 --- !u!114 &7470146214729454478
@@ -96,11 +100,47 @@ MonoBehaviour:
   - id: 0
     name: AAA AAA
     story: A story
-    SkillIds: 
+    SkillIds: 000000000100000002000000
     selectingImage: {fileID: 21300000, guid: 770a3c6ccb173e54eb3122bbb0af0568, type: 3}
   - id: 1
     name: BBB BBB
     story: B story
-    SkillIds: 
+    SkillIds: 000000000100000002000000
     selectingImage: {fileID: 21300000, guid: 17fd9ae7176856140ac368a8da729144, type: 3}
-  skillDatas: []
+  skillDatas:
+  - id: 0
+    name: level 1
+    command: 000000000000000000000000
+    discription: WWW
+    icon: {fileID: 21300000, guid: 2812d32d067e72b468d88f541de80a52, type: 3}
+    level: 1
+  - id: 1
+    name: level 2
+    command: 01000000010000000100000001000000
+    discription: SSSS
+    icon: {fileID: 21300000, guid: 2812d32d067e72b468d88f541de80a52, type: 3}
+    level: 2
+  - id: 2
+    name: Special Skill
+    command: 020000000300000002000000030000000200000003000000
+    discription: adadad
+    icon: {fileID: 21300000, guid: 2812d32d067e72b468d88f541de80a52, type: 3}
+    level: 3
+--- !u!114 &5620924697966876232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3184124279708434805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eba56990606f84ef088e9cb4b3c4bb72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInput: 0
+  enemyTouched: 0
+  maxKeyInput: 13
+  inputedAllows: 
+  mySkillGuage: 0
+  enemySkillGuage: 0

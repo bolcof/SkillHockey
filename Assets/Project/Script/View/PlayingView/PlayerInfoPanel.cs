@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Playing_PlayerInfo : MonoBehaviour {
+public class PlayerInfoPanel : MonoBehaviour {
     [SerializeField] private List<GameObject> charactorSprites = new List<GameObject>();
     [SerializeField] private List<GameObject> lifeMarkers = new List<GameObject>();
     [SerializeField] private Image guage;
@@ -31,7 +31,6 @@ public class Playing_PlayerInfo : MonoBehaviour {
     }
 
     public void SetGuage() {
-
+        //TODO:SetGuage
     }
-
 }
