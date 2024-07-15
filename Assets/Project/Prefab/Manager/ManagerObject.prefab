@@ -135,3 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba56990606f84ef088e9cb4b3c4bb72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canInput: 0
+  maxKeyInput: 13
+  inputedAllows: 

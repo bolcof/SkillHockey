@@ -5,8 +5,13 @@ using UnityEngine;
 public class CommandManager : MonoBehaviour {
     public static CommandManager instance;
 
-    public bool canInput;
+    public bool canInput, enemyTouched;
+    public int maxKeyInput;
     public List<int> inputedAllows = new List<int>();
+
+    public float mySkillGuage;
+    // TODO:demo
+    public float enemySkillGuage;
 
     void Awake() {
         if (instance == null) {
@@ -18,8 +23,20 @@ public class CommandManager : MonoBehaviour {
         inputedAllows.Clear();
     }
 
+    public void SetFirst() {
+        mySkillGuage = 0;
+        enemySkillGuage = 0;
+        canInput = false;
+        ResetKeys();
+    }
+
+    public void PackGoaled() {
+        canInput = false;
+        ResetKeys();
+    }
+
     private void Update() {
-        if (canInput) {
+        if (canInput && inputedAllows.Count < maxKeyInput) {
             if(Input.GetKeyDown(KeyCode.W)) {
                 InputKey(0);
             }else if(Input.GetKeyDown(KeyCode.S)) {
@@ -33,12 +50,32 @@ public class CommandManager : MonoBehaviour {
     }
 
     private void InputKey(int i) {
+
         ViewManager.instance.playingView.commandLinePanel.AddAllow(inputedAllows.Count, i);
         inputedAllows.Add(i);
     }
 
-    public void ResetKeys() {
+    private void ResetKeys() {
         inputedAllows.Clear();
         ViewManager.instance.playingView.commandLinePanel.ResetView();
+    }
+
+    public void TouchMyPaddle() {
+        canInput = true;
+        if (enemyTouched) {
+            SearchSkill();
+        }
+        ResetKeys();
+        enemyTouched = false;
+    }
+
+    public void TouchMyWall() {
+        canInput = false;
+        ResetKeys();
+    }
+
+    public int SearchSkill() {
+        Debug.Log("SearchSkill");
+        return -1;
     }
 }

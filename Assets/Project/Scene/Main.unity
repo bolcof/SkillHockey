@@ -240,8 +240,8 @@ GameObject:
   - component: {fileID: 107246649}
   - component: {fileID: 107246648}
   m_Layer: 0
-  m_Name: RightSideFrame
-  m_TagString: Untagged
+  m_Name: SideWall_Right
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -480,8 +480,8 @@ GameObject:
   - component: {fileID: 463963117}
   - component: {fileID: 463963116}
   m_Layer: 0
-  m_Name: EnemyFrame_Right
-  m_TagString: Untagged
+  m_Name: EnemyWall_Right
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -622,7 +622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4228689527925214120, guid: 1db2d5cf8fe22294b9b4302befaf7bd2, type: 3}
       propertyPath: m_Name
-      value: EnemyPaddle (2)
+      value: EnemyPaddle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -722,7 +722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1595567924}
   m_Layer: 0
-  m_Name: Frames
+  m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -872,8 +872,8 @@ GameObject:
   - component: {fileID: 1694219201}
   - component: {fileID: 1694219200}
   m_Layer: 0
-  m_Name: MyFrame_Left
-  m_TagString: Untagged
+  m_Name: MyWall_Left
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1060,8 +1060,8 @@ GameObject:
   - component: {fileID: 1754325837}
   - component: {fileID: 1754325836}
   m_Layer: 0
-  m_Name: MyFrame_Right
-  m_TagString: Untagged
+  m_Name: MyWall_Right
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1296,7 +1296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4228689527925214120, guid: 1db2d5cf8fe22294b9b4302befaf7bd2, type: 3}
       propertyPath: m_Name
-      value: EnemyPaddle (1)
+      value: EnemyPaddle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1316,8 +1316,8 @@ GameObject:
   - component: {fileID: 1877192963}
   - component: {fileID: 1877192962}
   m_Layer: 0
-  m_Name: LeftSideFrame
-  m_TagString: Untagged
+  m_Name: SideWall_Left
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1421,8 +1421,8 @@ GameObject:
   - component: {fileID: 2062222328}
   - component: {fileID: 2062222327}
   m_Layer: 0
-  m_Name: EnemyFrame_Left
-  m_TagString: Untagged
+  m_Name: EnemyWall_Left
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1995,7 +1995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6360152601305934255, guid: 88f2038cd6bb42842b929b98542fba88, type: 3}
       propertyPath: m_Name
-      value: PlayerPabble
+      value: PlayerPaddle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

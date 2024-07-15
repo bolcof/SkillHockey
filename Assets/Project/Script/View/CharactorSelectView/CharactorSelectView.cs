@@ -44,7 +44,7 @@ public class CharactorSelectView : MonoBehaviour {
     public void PushStartButton() {
         ViewManager.instance.playingView.gameObject.SetActive(true);
         ViewManager.instance.playingView.Set();
-        CommandManager.instance.ResetKeys();
+        CommandManager.instance.SetFirst();
         GameObjectManager.instance.GameStart();
         gameObject.SetActive(false);
     }
