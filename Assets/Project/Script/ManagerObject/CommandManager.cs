@@ -75,7 +75,32 @@ public class CommandManager : MonoBehaviour {
     }
 
     public int SearchSkill() {
-        Debug.Log("SearchSkill");
+
+        if (CompareLastElements(GameInfoManager.instance.currentSkillData[2].command, inputedAllows)) {
+            Debug.Log("Skill Lv3");
+        } else if (CompareLastElements(GameInfoManager.instance.currentSkillData[1].command, inputedAllows)) {
+            Debug.Log("Skill Lv2");
+        } else if (CompareLastElements(GameInfoManager.instance.currentSkillData[0].command, inputedAllows)) {
+            Debug.Log("Skill Lv1");
+        }
+
         return -1;
+    }
+    private static bool CompareLastElements(List<int> Command, List<int> Inputed) {
+        int n = Command.Count;
+
+        // InputedがCommandより要素数が少ない場合、比較できないためFalseを返す
+        if (Inputed.Count < n) {
+            return false;
+        }
+
+        // Inputedの最後のn個の要素をCommandと比較する
+        for (int i = 0; i < n; i++) {
+            if (Command[i] != Inputed[Inputed.Count - n + i]) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
