@@ -5,29 +5,25 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerInfoPanel : MonoBehaviour {
-    [SerializeField] private List<GameObject> charactorSprites = new List<GameObject>();
-    [SerializeField] private List<GameObject> lifeMarkers = new List<GameObject>();
+    [SerializeField] private Image CharactorImage;
+    [SerializeField] private List<Sprite> charactorSprites = new List<Sprite>();
+    [SerializeField] private List<GameObject> lifeCountLabels = new List<GameObject>();
     [SerializeField] private Image guage;
     [SerializeField] private TextMeshProUGUI guageLevel;
 
     public void Set(int charactorId) {
-        foreach (var obj in charactorSprites) {
-            obj.SetActive(false);
+        CharactorImage.sprite = charactorSprites[charactorId];
+        foreach(var life in lifeCountLabels) {
+            life.SetActive(false);
         }
-        charactorSprites[charactorId].SetActive(true);
-
-        foreach(var life in lifeMarkers) {
-            life.SetActive(true);
-        }
+        lifeCountLabels[LifeManager.instance.myDefaultLife].SetActive(true);
     }
 
     public void LifeChange(int life) {
-        foreach (var l in lifeMarkers) {
+        foreach (var l in lifeCountLabels) {
             l.SetActive(false);
         }
-        for (int i = 0; i < life; i++) {
-            lifeMarkers[i].SetActive(true);
-        }
+        lifeCountLabels[life].SetActive(true);
     }
 
     public void SetGuage() {
