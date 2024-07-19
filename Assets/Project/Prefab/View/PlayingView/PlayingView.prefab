@@ -915,6 +915,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CommandLine
       objectReference: {fileID: 0}
+    - target: {fileID: 428835488628764582, guid: c59ca64c9a2f33f48ba999810636452e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428835488628764582, guid: c59ca64c9a2f33f48ba999810636452e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428835488628764582, guid: c59ca64c9a2f33f48ba999810636452e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 428835488628764582, guid: c59ca64c9a2f33f48ba999810636452e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1062191729552116223, guid: c59ca64c9a2f33f48ba999810636452e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
