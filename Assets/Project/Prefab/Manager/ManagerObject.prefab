@@ -49,9 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSelectCharactorId: -1
-  currentSkillId_Lv1: -1
-  currentSkillId_Lv2: -1
-  currentSkillId_Lv3: -1
+  currentSkillData: []
   enemyCharactorId: -1
   currentGameMode: 0
 --- !u!114 &7470146214729454478
@@ -101,30 +99,50 @@ MonoBehaviour:
     name: AAA AAA
     story: A story
     SkillIds: 000000000100000002000000
-    selectingImage: {fileID: 21300000, guid: 770a3c6ccb173e54eb3122bbb0af0568, type: 3}
+    selectingImage: {fileID: 21300000, guid: 803a50bb7754b8940ad9eaeaaf163add, type: 3}
+    lockedMessage: 
   - id: 1
     name: BBB BBB
     story: B story
-    SkillIds: 000000000100000002000000
-    selectingImage: {fileID: 21300000, guid: 17fd9ae7176856140ac368a8da729144, type: 3}
-  skillDatas:
-  - id: 0
-    name: level 1
-    command: 000000000000000000000000
-    discription: WWW
-    icon: {fileID: 21300000, guid: 2812d32d067e72b468d88f541de80a52, type: 3}
-    level: 1
-  - id: 1
-    name: level 2
-    command: 01000000010000000100000001000000
-    discription: SSSS
-    icon: {fileID: 21300000, guid: 2812d32d067e72b468d88f541de80a52, type: 3}
-    level: 2
+    SkillIds: 030000000400000005000000
+    selectingImage: {fileID: 21300000, guid: 5bb915bea021e1147a519ad9d7986c3a, type: 3}
+    lockedMessage: 
   - id: 2
-    name: Special Skill
+    name: CCC CCC
+    story: B story
+    SkillIds: 030000000400000005000000
+    selectingImage: {fileID: 21300000, guid: 5bb915bea021e1147a519ad9d7986c3a, type: 3}
+    lockedMessage: "\u672A\u89E3\u7981\u30AD\u30E3\u30E9\u30AF\u30BF\u30FC \u958B\u767A\u306E\u5FDC\u63F4\u304A\u9858\u3044\u3057\u307E\u3059\uFF01"
+  skillDatas:
+  - name: "A \u306E\u30EC\u30D9\u30EB \uFF11"
+    command: 000000000000000000000000
+    discription: "\u3046\u3048\u3046\u3048\u3046\u3048"
+    icon: {fileID: 21300000, guid: 8f7336cdeb476e94b8604f28cbf39482, type: 3}
+    level: 1
+  - name: "\u30EC\u30C3\u30C4\u30B4\u30FC"
+    command: 01000000010000000100000001000000
+    discription: "\u30A6\u30AA\u30FC\u30FC\u30FC"
+    icon: {fileID: 21300000, guid: 0abbafa2a11c5154fb8997bfb6df1489, type: 3}
+    level: 2
+  - name: "\u3072\u3063\u3055\u3064\u308F\u3056"
     command: 020000000300000002000000030000000200000003000000
-    discription: adadad
-    icon: {fileID: 21300000, guid: 2812d32d067e72b468d88f541de80a52, type: 3}
+    discription: "\u30AB\u30BF\u30AB\u30BF\u30AB\u30BF"
+    icon: {fileID: 21300000, guid: c79da5a0b0f1e6c4c8db485de5580a32, type: 3}
+    level: 3
+  - name: B - Level1
+    command: 030000000300000003000000
+    discription: "\u30EF\u30FC\u30AD\u30F3\u30B0\u30D7\u30A2"
+    icon: {fileID: 21300000, guid: 47a63e4e42964884d80f2bde729ff16a, type: 3}
+    level: 1
+  - name: B - Level2
+    command: 00000000010000000200000003000000
+    discription: "\u6539\u884C\u3069\u3046\u3084\u308B\u3093\u3060\u3063\u3051"
+    icon: {fileID: 21300000, guid: e36f9065a600df4439a6edcc71987381, type: 3}
+    level: 2
+  - name: B - Special Skill
+    command: 000000000100000000000000010000000000000001000000
+    discription: a d a d a d
+    icon: {fileID: 21300000, guid: bbde306d1bf835c468cd4ff2b2fdad4c, type: 3}
     level: 3
 --- !u!114 &5620924697966876232
 MonoBehaviour:

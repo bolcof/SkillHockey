@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 2257517392473413750}
   - component: {fileID: 2691881197217326005}
   - component: {fileID: 7383645764479123281}
+  - component: {fileID: 6703082911310282041}
   m_Layer: 5
   m_Name: SkillInfo
   m_TagString: Untagged
@@ -160,6 +161,30 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6703082911310282041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664416306659034418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759254da203a44835b489c15614a1856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillIcon: {fileID: 1410921786784803334}
+  skillName: {fileID: 4716871987520174550}
+  commandAllows:
+  - {fileID: 6891221858722812811}
+  - {fileID: 5888167174703413476}
+  - {fileID: 8000980325308086052}
+  - {fileID: 1746705953341841976}
+  - {fileID: 7139749928496733226}
+  - {fileID: 5295725491419254413}
+  - {fileID: 3193432715548798425}
+  - {fileID: 8374111195149970411}
+  discription: {fileID: 5280913109617169108}
 --- !u!1 &2431444743681677716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,7 +1305,7 @@ GameObject:
   - component: {fileID: 8870876538352456701}
   - component: {fileID: 831461107527601103}
   m_Layer: 5
-  m_Name: Title
+  m_Name: LevelLabels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

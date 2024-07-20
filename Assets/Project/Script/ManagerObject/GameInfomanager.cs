@@ -33,7 +33,7 @@ public class GameInfoManager : MonoBehaviour {
         currentSkillData.Add(DataHolder.instance.skillDatas[DataHolder.instance.charactors[charaId].SkillIds[0]]);
         currentSkillData.Add(DataHolder.instance.skillDatas[DataHolder.instance.charactors[charaId].SkillIds[1]]);
         currentSkillData.Add(DataHolder.instance.skillDatas[DataHolder.instance.charactors[charaId].SkillIds[2]]);
-        ViewManager.instance.charactorSelectView.EnableStartButton();
+        ViewManager.instance.charactorSelectView.GoPlaying();
     }
 
     public void ResetWorld() {

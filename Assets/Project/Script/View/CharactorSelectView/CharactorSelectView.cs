@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class CharactorSelectView : MonoBehaviour {
     public GameObject demoCharactorSelectPanel;
-    [SerializeField] private List<Button> charactorButtonList = new List<Button>();
-
-    [SerializeField] private Button startButton;
+    [SerializeField] private List<CharactorButton> charactorButtonList = new List<CharactorButton>();
     [SerializeField] private CharactorSelect_PlayerInfoFrame playerInfoFrame;
-    public bool hasSelected;
+    [SerializeField] private List<SkillInfo> skillInfos = new List<SkillInfo>();
+    [SerializeField] private LockedInfo lockedInfo;
+
 
     public void Set(GameInfoManager.GameMode gameMode) {
         switch (gameMode) {
@@ -22,30 +22,46 @@ public class CharactorSelectView : MonoBehaviour {
                 demoCharactorSelectPanel.SetActive(false);
                 break;
         }
-        startButton.gameObject.SetActive(false);
-        hasSelected = false;
-        foreach (var b in charactorButtonList) {
-            b.interactable = true;
+
+        foreach (var cb in charactorButtonList) {
+            cb.Set();
         }
+        //first set
+        charactorButtonList[0].HoverCursor();
     }
 
     public void ChangeSelectingChacactor(int charaId) {
         playerInfoFrame.ChangeHighlightedCharactor(charaId);
-    }
+        foreach (var cb in charactorButtonList) {
+            cb.highlight.SetActive(false);
+        }
+        charactorButtonList[charaId].highlight.SetActive(true);
 
-    public void EnableStartButton() {
-        startButton.gameObject.SetActive(true);
-        hasSelected = true;
-        foreach (var b in charactorButtonList) {
-            b.interactable = false;
+        lockedInfo.gameObject.SetActive(false);
+        for (int i = 0; i < 3; i++) {
+            skillInfos[i].gameObject.SetActive(true);
+            skillInfos[i].Set(DataHolder.instance.charactors[charaId].SkillIds[i]);
         }
     }
 
-    public void PushStartButton() {
+    public void HoverLockedCharactor(int charaId) {
+        lockedInfo.gameObject.SetActive(true);
+        lockedInfo.Set(charaId);
+        for (int i = 0; i < 3; i++) {
+            skillInfos[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void GoPlaying() {
         ViewManager.instance.playingView.gameObject.SetActive(true);
         ViewManager.instance.playingView.Set();
         CommandManager.instance.SetFirst();
         GameObjectManager.instance.GameStart();
+        gameObject.SetActive(false);
+    }
+
+    public void BackTitle() {
+        ViewManager.instance.titleView.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 }

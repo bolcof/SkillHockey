@@ -9,4 +9,5 @@ public class CharactorData {
     public string story;
     public List<int> SkillIds = new List<int>();
     public Sprite selectingImage;
+    public string lockedMessage;
 }
