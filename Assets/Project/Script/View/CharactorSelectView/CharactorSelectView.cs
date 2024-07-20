@@ -7,6 +7,7 @@ public class CharactorSelectView : MonoBehaviour {
     public GameObject demoCharactorSelectPanel;
     [SerializeField] private List<CharactorButton> charactorButtonList = new List<CharactorButton>();
     [SerializeField] private CharactorSelect_PlayerInfoFrame playerInfoFrame;
+    [SerializeField] private List<SkillInfo> skillInfos = new List<SkillInfo>();
 
     public void Set(GameInfoManager.GameMode gameMode) {
         switch (gameMode) {
@@ -27,6 +28,10 @@ public class CharactorSelectView : MonoBehaviour {
             cb.highlight.SetActive(false);
         }
         charactorButtonList[charaId].highlight.SetActive(true);
+
+        for (int i = 0; i < 3; i++) {
+            skillInfos[i].Set(DataHolder.instance.charactors[charaId].SkillIds[i]);
+        }
     }
 
     public void GoPlaying() {
