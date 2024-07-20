@@ -31,6 +31,10 @@ public class CharactorSelectView : MonoBehaviour {
 
     public void ChangeSelectingChacactor(int charaId) {
         playerInfoFrame.ChangeHighlightedCharactor(charaId);
+        foreach (var cb in charactorButtonList) {
+            cb.gameObject.GetComponent<CharactorButton>().highlight.SetActive(false);
+        }
+        charactorButtonList[charaId].gameObject.GetComponent<CharactorButton>().highlight.SetActive(true);
     }
 
     public void EnableStartButton() {

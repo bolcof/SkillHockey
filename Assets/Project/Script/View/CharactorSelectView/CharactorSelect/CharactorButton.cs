@@ -2,10 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CharactorButton : MonoBehaviour {
-    [SerializeField] int charaId;
-    [SerializeField] bool isAvailable;
+    [SerializeField] private int charaId;
+    [SerializeField] private bool isAvailable;
+
+    [SerializeField] private Sprite lockedIcon;
+    [SerializeField] private List<Sprite> charactorIcons = new List<Sprite>();
+
+    [SerializeField] private Image iconObj;
+    public GameObject highlight;
+
+    private void Start() {
+        if (isAvailable) {
+            iconObj.sprite = charactorIcons[charaId];
+        }
+        highlight.SetActive(false);
+    }
 
     public void HoverCursor() {
         if (isAvailable && !ViewManager.instance.charactorSelectView.hasSelected) {
