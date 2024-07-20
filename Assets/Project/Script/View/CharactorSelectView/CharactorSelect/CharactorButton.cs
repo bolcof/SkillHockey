@@ -22,13 +22,13 @@ public class CharactorButton : MonoBehaviour {
     }
 
     public void HoverCursor() {
-        if (isAvailable && !ViewManager.instance.charactorSelectView.hasSelected) {
+        if (isAvailable) {
             ViewManager.instance.charactorSelectView.ChangeSelectingChacactor(charaId);
         }
     }
 
     public void PushButton() {
-        if (isAvailable && !ViewManager.instance.charactorSelectView.hasSelected) {
+        if (isAvailable) {
             GameInfoManager.instance.DecideCharactor(charaId);
         }
     }
