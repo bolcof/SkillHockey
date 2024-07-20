@@ -24,6 +24,9 @@ public class CharactorButton : MonoBehaviour {
     public void HoverCursor() {
         if (isAvailable) {
             ViewManager.instance.charactorSelectView.ChangeSelectingChacactor(charaId);
+        } else {
+            //TODO:2 to each charaID
+            ViewManager.instance.charactorSelectView.HoverLockedCharactor(2);
         }
     }
 

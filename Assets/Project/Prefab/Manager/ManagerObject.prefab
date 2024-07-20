@@ -100,11 +100,19 @@ MonoBehaviour:
     story: A story
     SkillIds: 000000000100000002000000
     selectingImage: {fileID: 21300000, guid: 803a50bb7754b8940ad9eaeaaf163add, type: 3}
+    lockedMessage: 
   - id: 1
     name: BBB BBB
     story: B story
     SkillIds: 030000000400000005000000
     selectingImage: {fileID: 21300000, guid: 5bb915bea021e1147a519ad9d7986c3a, type: 3}
+    lockedMessage: 
+  - id: 2
+    name: CCC CCC
+    story: B story
+    SkillIds: 030000000400000005000000
+    selectingImage: {fileID: 21300000, guid: 5bb915bea021e1147a519ad9d7986c3a, type: 3}
+    lockedMessage: "\u672A\u89E3\u7981\u30AD\u30E3\u30E9\u30AF\u30BF\u30FC \u958B\u767A\u306E\u5FDC\u63F4\u304A\u9858\u3044\u3057\u307E\u3059\uFF01"
   skillDatas:
   - name: "A \u306E\u30EC\u30D9\u30EB \uFF11"
     command: 000000000000000000000000

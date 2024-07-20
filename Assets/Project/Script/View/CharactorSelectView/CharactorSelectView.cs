@@ -8,6 +8,8 @@ public class CharactorSelectView : MonoBehaviour {
     [SerializeField] private List<CharactorButton> charactorButtonList = new List<CharactorButton>();
     [SerializeField] private CharactorSelect_PlayerInfoFrame playerInfoFrame;
     [SerializeField] private List<SkillInfo> skillInfos = new List<SkillInfo>();
+    [SerializeField] private LockedInfo lockedInfo;
+
 
     public void Set(GameInfoManager.GameMode gameMode) {
         switch (gameMode) {
@@ -35,8 +37,18 @@ public class CharactorSelectView : MonoBehaviour {
         }
         charactorButtonList[charaId].highlight.SetActive(true);
 
+        lockedInfo.gameObject.SetActive(false);
         for (int i = 0; i < 3; i++) {
+            skillInfos[i].gameObject.SetActive(true);
             skillInfos[i].Set(DataHolder.instance.charactors[charaId].SkillIds[i]);
+        }
+    }
+
+    public void HoverLockedCharactor(int charaId) {
+        lockedInfo.gameObject.SetActive(true);
+        lockedInfo.Set(charaId);
+        for (int i = 0; i < 3; i++) {
+            skillInfos[i].gameObject.SetActive(false);
         }
     }
 
