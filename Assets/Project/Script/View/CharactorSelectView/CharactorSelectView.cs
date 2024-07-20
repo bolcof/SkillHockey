@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CharactorSelectView : MonoBehaviour {
     public GameObject demoCharactorSelectPanel;
-    [SerializeField] private List<Button> charactorButtonList = new List<Button>();
+    [SerializeField] private List<CharactorButton> charactorButtonList = new List<CharactorButton>();
 
     [SerializeField] private Button startButton;
     [SerializeField] private CharactorSelect_PlayerInfoFrame playerInfoFrame;
@@ -24,25 +24,19 @@ public class CharactorSelectView : MonoBehaviour {
         }
         startButton.gameObject.SetActive(false);
         hasSelected = false;
-        foreach (var b in charactorButtonList) {
-            b.interactable = true;
-        }
     }
 
     public void ChangeSelectingChacactor(int charaId) {
         playerInfoFrame.ChangeHighlightedCharactor(charaId);
         foreach (var cb in charactorButtonList) {
-            cb.gameObject.GetComponent<CharactorButton>().highlight.SetActive(false);
+            cb.highlight.SetActive(false);
         }
-        charactorButtonList[charaId].gameObject.GetComponent<CharactorButton>().highlight.SetActive(true);
+        charactorButtonList[charaId].highlight.SetActive(true);
     }
 
     public void EnableStartButton() {
         startButton.gameObject.SetActive(true);
         hasSelected = true;
-        foreach (var b in charactorButtonList) {
-            b.interactable = false;
-        }
     }
 
     public void PushStartButton() {
