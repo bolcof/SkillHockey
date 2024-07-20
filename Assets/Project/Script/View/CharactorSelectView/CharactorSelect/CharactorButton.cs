@@ -14,7 +14,7 @@ public class CharactorButton : MonoBehaviour {
     [SerializeField] private Image iconObj;
     public GameObject highlight;
 
-    private void Start() {
+    public void Set() {
         if (isAvailable) {
             iconObj.sprite = charactorIcons[charaId];
         }

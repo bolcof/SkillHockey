@@ -20,6 +20,12 @@ public class CharactorSelectView : MonoBehaviour {
                 demoCharactorSelectPanel.SetActive(false);
                 break;
         }
+
+        foreach (var cb in charactorButtonList) {
+            cb.Set();
+        }
+        //first set
+        charactorButtonList[0].HoverCursor();
     }
 
     public void ChangeSelectingChacactor(int charaId) {
