@@ -21,6 +21,7 @@ public class GameObjectManager : MonoBehaviour {
         currentPack = Instantiate(packObject).GetComponent<PackBehaviour>();
         currentPack.Set();
         LifeManager.instance.Set();
+        TimeManager.instance.SetFirst();
     }
 
 

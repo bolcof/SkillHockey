@@ -5,9 +5,8 @@ using TMPro;
 using DG.Tweening;
 
 public class PlayingView : MonoBehaviour {
-    public TextMeshProUGUI timeLabel;
+    public TimeLimit timeLimit;
     public PlayerInfoPanel myPlayerInfo, enemyPlayerInfo;
-
     public CommandLinePanel commandLinePanel;
 
     public void Set() {
@@ -18,5 +17,9 @@ public class PlayingView : MonoBehaviour {
         GameInfoManager.instance.enemyCharactorId = enemyCharaId;
         
         enemyPlayerInfo.Set(enemyCharaId);
+    }
+
+    public void setTime(float currentTime) {
+        timeLimit.Set(currentTime);
     }
 }
