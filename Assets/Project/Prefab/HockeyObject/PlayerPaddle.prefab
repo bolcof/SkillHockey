@@ -149,6 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb49c61897b5804dab6fed41402b160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xRange: {x: -7.6, y: 7.6}
+  zRange: {x: -11.45, y: -0.6}
   targetPosition: {x: 0, y: 0, z: 0}
 --- !u!136 &6633336550954845692
 CapsuleCollider:

@@ -4,8 +4,8 @@ using UnityEngine;
 using DG.Tweening;
 
 public class EnemyPaddle : MonoBehaviour {
-    private Vector2 xRange = new Vector2(-6.25f, 6.25f);  // X軸の移動範囲
-    private Vector2 zRange = new Vector2(0.6f, 12.5f);  // Z軸の移動範囲
+    [SerializeField] private Vector2 xRange;  // X軸の移動範囲
+    [SerializeField] private Vector2 zRange;  // Z軸の移動範囲
     void Start() {
         MoveStart();
     }
