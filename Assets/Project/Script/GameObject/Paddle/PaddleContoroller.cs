@@ -5,8 +5,8 @@ using UnityEngine;
 public class PaddleController : MonoBehaviour {
     private Rigidbody rb;
 
-    private Vector2 xRange = new Vector2(-6.25f, 6.25f);  // X軸の移動範囲
-    private Vector2 zRange = new Vector2(-12.5f, -0.6f);  // Z軸の移動範囲
+    [SerializeField] private Vector2 xRange; // X軸の移動範囲
+    [SerializeField] private Vector2 zRange;  // Z軸の移動範囲
     public Vector3 targetPosition;
 
     private int screenWidth, screenHeight;
