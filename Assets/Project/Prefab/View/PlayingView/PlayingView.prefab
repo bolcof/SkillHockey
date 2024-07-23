@@ -2883,6 +2883,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyElements
       objectReference: {fileID: 0}
+    - target: {fileID: 1122557481202899387, guid: da42b4b9114de459099085029c452e8a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15.099976
+      objectReference: {fileID: 0}
     - target: {fileID: 2705680564544568025, guid: da42b4b9114de459099085029c452e8a, type: 3}
       propertyPath: m_text
       value: Enemy
@@ -2996,6 +3000,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9075533476316051497}
     m_Modifications:
+    - target: {fileID: 317708687468033651, guid: a6bdc931bb2583f45b43b5f4a53886fb, type: 3}
+      propertyPath: fills.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 317708687468033651, guid: a6bdc931bb2583f45b43b5f4a53886fb, type: 3}
+      propertyPath: whiteFills.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4097439877929109708, guid: a6bdc931bb2583f45b43b5f4a53886fb, type: 3}
       propertyPath: m_Name
       value: PlayerElements
