@@ -9,9 +9,9 @@ public class CommandManager : MonoBehaviour {
     public int maxKeyInput;
     public List<int> inputedAllows = new List<int>();
 
-    public float mySkillGuage;
+    public float mySkillPoint;
     // TODO:demo
-    public float enemySkillGuage;
+    public float enemySkillPoint;
 
     void Awake() {
         if (instance == null) {
@@ -24,8 +24,8 @@ public class CommandManager : MonoBehaviour {
     }
 
     public void SetFirst() {
-        mySkillGuage = 0;
-        enemySkillGuage = 0;
+        mySkillPoint = 0;
+        enemySkillPoint = 0;
         canInput = false;
         ResetKeys();
     }
@@ -37,13 +37,13 @@ public class CommandManager : MonoBehaviour {
 
     private void Update() {
         if (canInput && inputedAllows.Count < maxKeyInput) {
-            if(Input.GetKeyDown(KeyCode.W)) {
+            if (Input.GetKeyDown(KeyCode.W)) {
                 InputKey(0);
-            }else if(Input.GetKeyDown(KeyCode.S)) {
+            } else if (Input.GetKeyDown(KeyCode.S)) {
                 InputKey(1);
-            } else if(Input.GetKeyDown(KeyCode.A)) {
+            } else if (Input.GetKeyDown(KeyCode.A)) {
                 InputKey(2);
-            } else if(Input.GetKeyDown(KeyCode.D)) {
+            } else if (Input.GetKeyDown(KeyCode.D)) {
                 InputKey(3);
             }
         }
