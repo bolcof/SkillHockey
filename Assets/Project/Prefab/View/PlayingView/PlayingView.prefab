@@ -1717,6 +1717,8 @@ MonoBehaviour:
   - {fileID: 4329094083994029505}
   - {fileID: 95443194301417017}
   - {fileID: 8515631882603811367}
+  mySkillGuage: {fileID: 6323795318152516076}
+  enemySkillGuage: {fileID: 5867292448781801064}
 --- !u!1 &8394391277303520754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2992,6 +2994,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371f52ef6499760498ce4bbe86d686ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5867292448781801064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2155931159735503598, guid: da42b4b9114de459099085029c452e8a, type: 3}
+  m_PrefabInstance: {fileID: 5514561617024752774}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9d4a18bf51f44aab9b5cf2bfe68ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6028657475712198559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3111,6 +3124,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 371f52ef6499760498ce4bbe86d686ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6323795318152516076 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 317708687468033651, guid: a6bdc931bb2583f45b43b5f4a53886fb, type: 3}
+  m_PrefabInstance: {fileID: 6028657475712198559}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9d4a18bf51f44aab9b5cf2bfe68ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8092071969529013189

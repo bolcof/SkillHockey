@@ -9,9 +9,9 @@ public class CommandManager : MonoBehaviour {
     public int maxKeyInput;
     public List<int> inputedAllows = new List<int>();
 
-    public float mySkillPoint;
-    // TODO:demo
-    public float enemySkillPoint;
+    public float mySkillPoint, myChargingPoint;
+    // TODO:onlyCpuMode
+    public float enemySkillPoint, enemyChargingPoint;
 
     void Awake() {
         if (instance == null) {
@@ -47,6 +47,14 @@ public class CommandManager : MonoBehaviour {
                 InputKey(3);
             }
         }
+
+        //TODO:debug
+        if (Input.GetKeyDown(KeyCode.T)) {
+            ChargeWhite(true, 15);
+        }
+        if (Input.GetKeyDown(KeyCode.Y)) {
+            ApplyWhite(true);
+        }
     }
 
     private void InputKey(int i) {
@@ -74,6 +82,34 @@ public class CommandManager : MonoBehaviour {
         ResetKeys();
     }
 
+    public void ChargeWhite(bool isMyPoint, float point) {
+        if (isMyPoint) {
+            myChargingPoint += point;
+            ViewManager.instance.playingView.SetWhiteGuage(true, myChargingPoint);
+        } else {
+            enemyChargingPoint += point;
+            ViewManager.instance.playingView.SetWhiteGuage(false, myChargingPoint);
+        }
+    }
+
+    public void ApplyWhite(bool isMyPoint) {
+        if (isMyPoint) {
+            mySkillPoint += myChargingPoint;
+            if (mySkillPoint >= 300) {
+                mySkillPoint = 300;
+            }
+            myChargingPoint = 0;
+            ViewManager.instance.playingView.ApplyGuage(true, mySkillPoint);
+        } else {
+            enemySkillPoint += enemySkillPoint;
+            if (enemySkillPoint >= 300) {
+                enemySkillPoint = 300;
+            }
+            enemySkillPoint = 0;
+            ViewManager.instance.playingView.ApplyGuage(false, enemySkillPoint);
+        }
+    }
+
     public int SearchSkill() {
 
         if (CompareLastElements(GameInfoManager.instance.currentSkillData[2].command, inputedAllows)) {
@@ -86,6 +122,7 @@ public class CommandManager : MonoBehaviour {
 
         return -1;
     }
+
     private static bool CompareLastElements(List<int> Command, List<int> Inputed) {
         int n = Command.Count;
 
