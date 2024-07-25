@@ -5,12 +5,17 @@ using UnityEngine;
 public class CommandManager : MonoBehaviour {
     public static CommandManager instance;
 
-    public bool canInput, enemyTouched;
+    // TODO:onlyCpuMode
     public int maxKeyInput;
     public List<int> inputedAllows = new List<int>();
 
+    private bool canPlayerCommandInput, canPlayerActuateSkill;
+    private bool canEnemyCommandInput, canEnemyActuateSkill;
+
+    private bool isPlayerCharging, isEnemyCharging;
+    private bool isPlayerPointActivate, isEnemyPointActivate;
+
     public float mySkillPoint, myChargingPoint;
-    // TODO:onlyCpuMode
     public float enemySkillPoint, enemyChargingPoint;
 
     void Awake() {
@@ -21,22 +26,28 @@ public class CommandManager : MonoBehaviour {
             Destroy(gameObject);
         }
         inputedAllows.Clear();
+
+        isPlayerPointActivate = false;
+        isEnemyPointActivate = false;
+
+        isPlayerCharging = false;
+        isEnemyCharging = false;
     }
 
     public void SetFirst() {
         mySkillPoint = 0;
         enemySkillPoint = 0;
-        canInput = false;
+        canPlayerCommandInput = false;
         ResetKeys();
     }
 
     public void PackGoaled() {
-        canInput = false;
+        canPlayerCommandInput = false;
         ResetKeys();
     }
 
     private void Update() {
-        if (canInput && inputedAllows.Count < maxKeyInput) {
+        if (canPlayerCommandInput && inputedAllows.Count < maxKeyInput) {
             if (Input.GetKeyDown(KeyCode.W)) {
                 InputKey(0);
             } else if (Input.GetKeyDown(KeyCode.S)) {
@@ -58,7 +69,6 @@ public class CommandManager : MonoBehaviour {
     }
 
     private void InputKey(int i) {
-
         ViewManager.instance.playingView.commandLinePanel.AddAllow(inputedAllows.Count, i);
         inputedAllows.Add(i);
     }
@@ -69,20 +79,47 @@ public class CommandManager : MonoBehaviour {
     }
 
     public void TouchMyPaddle() {
-        canInput = true;
-        if (enemyTouched) {
+        canPlayerCommandInput = true;
+        if (canPlayerActuateSkill) {
             SearchSkill();
         }
         ResetKeys();
-        enemyTouched = false;
+        canPlayerActuateSkill = false;
+
+        isPlayerCharging = true;
+        isPlayerPointActivate = false;
     }
 
     public void TouchMyWall() {
-        canInput = false;
+        if (isPlayerPointActivate) {
+
+        }
         ResetKeys();
+        canPlayerCommandInput = false;
+        isPlayerCharging = false;
+        isPlayerPointActivate = false;
     }
 
-    public void ChargeWhite(bool isMyPoint, float point) {
+    public void TouchEnemyPaddle() {
+        isPlayerPointActivate = true;
+        canPlayerActuateSkill = true;
+    }
+
+    public void TouchEnemyWall() {
+        isPlayerPointActivate = true;
+        canPlayerActuateSkill = true;
+    }
+
+    public void TouchSideWall() {
+        if (isPlayerCharging) {
+            ChargeWhite(true, 15);
+        }
+        if (isEnemyCharging) {
+            ChargeWhite(false, 15);
+        }
+    }
+
+    private void ChargeWhite(bool isMyPoint, float point) {
         if (isMyPoint) {
             myChargingPoint += point;
             ViewManager.instance.playingView.SetWhiteGuage(true, myChargingPoint);
@@ -92,7 +129,7 @@ public class CommandManager : MonoBehaviour {
         }
     }
 
-    public void ApplyWhite(bool isMyPoint) {
+    private void ApplyWhite(bool isMyPoint) {
         if (isMyPoint) {
             mySkillPoint += myChargingPoint;
             if (mySkillPoint >= 300) {
