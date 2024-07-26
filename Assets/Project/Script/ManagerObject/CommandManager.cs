@@ -44,6 +44,8 @@ public class CommandManager : MonoBehaviour {
     public void PackGoaled() {
         canPlayerCommandInput = false;
         ResetKeys();
+        ResetWhite(true);
+        ResetWhite(false);
     }
 
     private void Update() {
@@ -124,6 +126,9 @@ public class CommandManager : MonoBehaviour {
         //Player Skill
         canPlayerActuateSkill = true;
 
+        //Enemy Skill
+        EnemySkill();
+
         //Player Charge
         isPlayerPointActivate = true;
         isPlayerCharging = false;
@@ -196,7 +201,7 @@ public class CommandManager : MonoBehaviour {
         }
     }
 
-    public int SearchSkill() {
+    private int SearchSkill() {
 
         if (CompareLastElements(GameInfoManager.instance.currentSkillData[2].command, inputedAllows)) {
             Debug.Log("Skill Lv3");
@@ -210,7 +215,7 @@ public class CommandManager : MonoBehaviour {
     }
 
     private void EnemySkill() {
-        Debug.Log("enemy can put skill");
+        Debug.Log("enemy can put skill : " + ((int)enemyChargingPoint / 100).ToString());
     }
 
     private static bool CompareLastElements(List<int> Command, List<int> Inputed) {
