@@ -23,8 +23,7 @@ public class PackBehaviour : MonoBehaviour {
 
         if (speed > maxSpeed) {
             velocity = velocity.normalized * maxSpeed;
-        }
-        else if (speed < minSpeed && speed > 0) {
+        } else if (speed < minSpeed && speed > 0) {
             velocity = velocity.normalized * minSpeed;
         }
 
@@ -44,7 +43,7 @@ public class PackBehaviour : MonoBehaviour {
                         CommandManager.instance.TouchMyPaddle();
                         break;
                     case "EnemyPaddle":
-                        CommandManager.instance.enemyTouched = true;
+                        CommandManager.instance.TouchEnemyPaddle();
                         break;
                 }
                 break;
@@ -56,10 +55,11 @@ public class PackBehaviour : MonoBehaviour {
                         break;
                     case "EnemyWall_Left":
                     case "EnemyWall_Right":
-                        CommandManager.instance.enemyTouched = true;
+                        CommandManager.instance.TouchEnemyWall();
                         break;
                     case "SideWall_Left":
                     case "SideWall_Right":
+                        CommandManager.instance.TouchSideWall();
                         break;
                 }
                 break;
@@ -67,9 +67,9 @@ public class PackBehaviour : MonoBehaviour {
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
                 break;
             case "Goal":
-                if(collision.gameObject.name == "MyGoal") {
+                if (collision.gameObject.name == "MyGoal") {
                     LifeManager.instance.PlayerDamage();
-                }else if(collision.gameObject.name == "EnemyGoal") {
+                } else if (collision.gameObject.name == "EnemyGoal") {
                     LifeManager.instance.EnemyDamage();
                 }
                 CommandManager.instance.PackGoaled();

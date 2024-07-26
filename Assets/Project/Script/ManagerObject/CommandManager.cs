@@ -5,13 +5,18 @@ using UnityEngine;
 public class CommandManager : MonoBehaviour {
     public static CommandManager instance;
 
-    public bool canInput, enemyTouched;
+    // TODO:onlyCpuMode
     public int maxKeyInput;
     public List<int> inputedAllows = new List<int>();
 
-    public float mySkillPoint;
-    // TODO:demo
-    public float enemySkillPoint;
+    private bool canPlayerCommandInput, canPlayerActuateSkill;
+    private bool canEnemyCommandInput, canEnemyActuateSkill;
+
+    private bool isPlayerCharging, isEnemyCharging;
+    private bool isPlayerPointActivate, isEnemyPointActivate;
+
+    public float mySkillPoint, myChargingPoint;
+    public float enemySkillPoint, enemyChargingPoint;
 
     void Awake() {
         if (instance == null) {
@@ -21,22 +26,30 @@ public class CommandManager : MonoBehaviour {
             Destroy(gameObject);
         }
         inputedAllows.Clear();
+
+        isPlayerPointActivate = false;
+        isEnemyPointActivate = false;
+
+        isPlayerCharging = false;
+        isEnemyCharging = false;
     }
 
     public void SetFirst() {
         mySkillPoint = 0;
         enemySkillPoint = 0;
-        canInput = false;
+        canPlayerCommandInput = false;
         ResetKeys();
     }
 
     public void PackGoaled() {
-        canInput = false;
+        canPlayerCommandInput = false;
         ResetKeys();
+        ResetWhite(true);
+        ResetWhite(false);
     }
 
     private void Update() {
-        if (canInput && inputedAllows.Count < maxKeyInput) {
+        if (canPlayerCommandInput && inputedAllows.Count < maxKeyInput) {
             if (Input.GetKeyDown(KeyCode.W)) {
                 InputKey(0);
             } else if (Input.GetKeyDown(KeyCode.S)) {
@@ -47,10 +60,17 @@ public class CommandManager : MonoBehaviour {
                 InputKey(3);
             }
         }
+
+        //TODO:debug
+        if (Input.GetKeyDown(KeyCode.T)) {
+            ChargeWhite(true, 15);
+        }
+        if (Input.GetKeyDown(KeyCode.Y)) {
+            ApplyWhite(true);
+        }
     }
 
     private void InputKey(int i) {
-
         ViewManager.instance.playingView.commandLinePanel.AddAllow(inputedAllows.Count, i);
         inputedAllows.Add(i);
     }
@@ -61,20 +81,127 @@ public class CommandManager : MonoBehaviour {
     }
 
     public void TouchMyPaddle() {
-        canInput = true;
-        if (enemyTouched) {
+        //Player Skill
+        canPlayerCommandInput = true;
+        if (canPlayerActuateSkill) {
             SearchSkill();
         }
         ResetKeys();
-        enemyTouched = false;
+        canPlayerActuateSkill = false;
+
+        //Player Charge
+        isPlayerCharging = true;
+        if (isPlayerPointActivate) {
+            ApplyWhite(true);
+        } else {
+            ResetWhite(true);
+        }
+        ChargeWhite(true, 5);
+        isPlayerPointActivate = false;
+
+        //Enemy Charge
+        isEnemyCharging = true;
+        isEnemyPointActivate = true;
     }
 
     public void TouchMyWall() {
-        canInput = false;
+        //Player Skill
         ResetKeys();
+        canPlayerCommandInput = false;
+
+        //Player Charge
+        isPlayerCharging = false;
+        if (isPlayerPointActivate) {
+            ApplyWhite(true);
+        } else {
+            ResetWhite(true);
+        }
+        isPlayerPointActivate = false;
+
+        //Enemy Charge
+        isEnemyCharging = true;
     }
 
-    public int SearchSkill() {
+    public void TouchEnemyPaddle() {
+        //Player Skill
+        canPlayerActuateSkill = true;
+
+        //Enemy Skill
+        EnemySkill();
+
+        //Player Charge
+        isPlayerPointActivate = true;
+        isPlayerCharging = false;
+
+        //Enemy Charge
+        isEnemyCharging = true;
+        if (isEnemyPointActivate) {
+            ApplyWhite(false);
+        }
+        ChargeWhite(false, 5);
+    }
+
+    public void TouchEnemyWall() {
+        //Player Skill
+        canPlayerActuateSkill = true;
+
+        //Player Charge
+        isPlayerPointActivate = true;
+
+        //Enemy Charge
+        if (isEnemyPointActivate) {
+            ApplyWhite(false);
+        }
+    }
+
+    public void TouchSideWall() {
+        if (isPlayerCharging) {
+            ChargeWhite(true, 9);
+        }
+        if (isEnemyCharging) {
+            ChargeWhite(false, 9);
+        }
+    }
+
+    private void ChargeWhite(bool isMyPoint, float point) {
+        if (isMyPoint) {
+            myChargingPoint += point;
+            ViewManager.instance.playingView.SetWhiteGuage(true, myChargingPoint);
+        } else {
+            enemyChargingPoint += point;
+            ViewManager.instance.playingView.SetWhiteGuage(false, myChargingPoint);
+        }
+    }
+
+    private void ResetWhite(bool isMyPoint) {
+        if (isMyPoint) {
+            myChargingPoint = 0;
+            ViewManager.instance.playingView.SetWhiteGuage(true, myChargingPoint);
+        } else {
+            enemyChargingPoint = 0;
+            ViewManager.instance.playingView.SetWhiteGuage(false, myChargingPoint);
+        }
+    }
+
+    private void ApplyWhite(bool isMyPoint) {
+        if (isMyPoint) {
+            mySkillPoint += myChargingPoint;
+            if (mySkillPoint >= 300) {
+                mySkillPoint = 300;
+            }
+            myChargingPoint = 0;
+            ViewManager.instance.playingView.ApplyGuage(true, mySkillPoint);
+        } else {
+            enemySkillPoint += enemySkillPoint;
+            if (enemySkillPoint >= 300) {
+                enemySkillPoint = 300;
+            }
+            enemySkillPoint = 0;
+            ViewManager.instance.playingView.ApplyGuage(false, enemySkillPoint);
+        }
+    }
+
+    private int SearchSkill() {
 
         if (CompareLastElements(GameInfoManager.instance.currentSkillData[2].command, inputedAllows)) {
             Debug.Log("Skill Lv3");
@@ -86,6 +213,11 @@ public class CommandManager : MonoBehaviour {
 
         return -1;
     }
+
+    private void EnemySkill() {
+        Debug.Log("enemy can put skill : " + ((int)enemyChargingPoint / 100).ToString());
+    }
+
     private static bool CompareLastElements(List<int> Command, List<int> Inputed) {
         int n = Command.Count;
 

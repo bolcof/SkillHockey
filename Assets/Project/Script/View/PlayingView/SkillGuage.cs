@@ -20,44 +20,21 @@ public class SkillGuage : MonoBehaviour {
 
     [SerializeField] float barWidth;
 
-    public float skillPoint;
-    public float chargingPoint;
+    private float currentSkillPoint;
 
-    public bool isDebug;
-    public float testSkillPoint;
-    public float testChargingPoint;
-
-    public void Set() {
-        for (int i = 0; i < 3; i++) {
-            masks[i].rectTransform.localPosition = masksInitialPosition[i] - new Vector3(barWidth, 0, 0);
-            fills[i].rectTransform.localPosition = fillsInitialPosition[i] + new Vector3(barWidth, 0, 0);
-            whiteMasks[i].rectTransform.localPosition = masksInitialPosition[i] - new Vector3(barWidth, 0, 0);
-            whiteFills[i].rectTransform.localPosition = fillsInitialPosition[i] + new Vector3(barWidth, 0, 0);
-        }
-        testSkillPoint = 150;
-        testChargingPoint = 25;
-        SetFill(testSkillPoint);
-        SetWhite(testChargingPoint);
-    }
-
-    private void Start() {
+    public void SetFirst() {
         for (int i = 0; i < 3; i++) {
             masksInitialPosition.Add(masks[i].rectTransform.localPosition);
             fillsInitialPosition.Add(fills[i].rectTransform.localPosition);
             whiteMasksInitialPosition.Add(whiteMasks[i].rectTransform.localPosition);
             whiteFillsInitialPosition.Add(whiteFills[i].rectTransform.localPosition);
         }
-        Set();
-    }
-
-    private void Update() {
-        skillPoint = testSkillPoint;
-        chargingPoint = testChargingPoint;
-        SetFill(testSkillPoint);
-        SetWhite(testChargingPoint);
+        SetFill(0);
+        SetWhite(0);
     }
 
     public void SetFill(float skillPoint) {
+        currentSkillPoint = skillPoint;
         if (skillPoint >= 300) {
             for (int i = 0; i < 3; i++) {
                 masks[i].rectTransform.localPosition = masksInitialPosition[i];
@@ -99,8 +76,7 @@ public class SkillGuage : MonoBehaviour {
     }
 
     public void SetWhite(float chargingPoint) {
-        float sumPoint = skillPoint + chargingPoint;
-        Debug.Log(sumPoint);
+        float sumPoint = currentSkillPoint + chargingPoint;
         if (sumPoint >= 300) {
             for (int i = 0; i < 3; i++) {
                 whiteMasks[i].rectTransform.localPosition = whiteMasksInitialPosition[i];

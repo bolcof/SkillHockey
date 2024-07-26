@@ -9,6 +9,7 @@ public class PlayingView : MonoBehaviour {
     public PlayerInfoPanel myPlayerInfo, enemyPlayerInfo;
     public CommandLinePanel commandLinePanel;
     [SerializeField] List<SkillGuide> skillGuides = new List<SkillGuide>();
+    [SerializeField] private SkillGuage mySkillGuage, enemySkillGuage;
 
     public void Set() {
         myPlayerInfo.Set(GameInfoManager.instance.currentSelectCharactorId);
@@ -21,9 +22,28 @@ public class PlayingView : MonoBehaviour {
         for (int i = 0; i < skillGuides.Count; i++) {
             skillGuides[i].Set(DataHolder.instance.charactors[GameInfoManager.instance.currentSelectCharactorId].SkillIds[i]);
         }
+
+        mySkillGuage.SetFirst();
+        enemySkillGuage.SetFirst();
     }
 
     public void setTime(float currentTime) {
         timeLimit.Set(currentTime);
+    }
+
+    public void SetWhiteGuage(bool isMyPoint, float point) {
+        if (isMyPoint) {
+            mySkillGuage.SetWhite(point);
+        } else {
+            enemySkillGuage.SetWhite(point);
+        }
+    }
+
+    public void ApplyGuage(bool isMyPoint, float point) {
+        if (isMyPoint) {
+            mySkillGuage.SetFill(point);
+        } else {
+            enemySkillGuage.SetFill(point);
+        }
     }
 }
