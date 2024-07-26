@@ -79,6 +79,7 @@ public class CommandManager : MonoBehaviour {
     }
 
     public void TouchMyPaddle() {
+        //Player Skill
         canPlayerCommandInput = true;
         if (canPlayerActuateSkill) {
             SearchSkill();
@@ -86,36 +87,74 @@ public class CommandManager : MonoBehaviour {
         ResetKeys();
         canPlayerActuateSkill = false;
 
+        //Player Charge
         isPlayerCharging = true;
+        if (isPlayerPointActivate) {
+            ApplyWhite(true);
+        } else {
+            ResetWhite(true);
+        }
+        ChargeWhite(true, 5);
         isPlayerPointActivate = false;
+
+        //Enemy Charge
+        isEnemyCharging = true;
+        isEnemyPointActivate = true;
     }
 
     public void TouchMyWall() {
-        if (isPlayerPointActivate) {
-
-        }
+        //Player Skill
         ResetKeys();
         canPlayerCommandInput = false;
+
+        //Player Charge
         isPlayerCharging = false;
+        if (isPlayerPointActivate) {
+            ApplyWhite(true);
+        } else {
+            ResetWhite(true);
+        }
         isPlayerPointActivate = false;
+
+        //Enemy Charge
+        isEnemyCharging = true;
     }
 
     public void TouchEnemyPaddle() {
-        isPlayerPointActivate = true;
+        //Player Skill
         canPlayerActuateSkill = true;
+
+        //Player Charge
+        isPlayerPointActivate = true;
+        isPlayerCharging = false;
+
+        //Enemy Charge
+        isEnemyCharging = true;
+        if (isEnemyPointActivate) {
+            ApplyWhite(false);
+        }
+        ChargeWhite(false, 5);
     }
 
     public void TouchEnemyWall() {
-        isPlayerPointActivate = true;
+        //Player Skill
         canPlayerActuateSkill = true;
+
+        //Player Charge
+        isPlayerPointActivate = true;
+
+        //Enemy Charge
+        if (isEnemyPointActivate) {
+            ApplyWhite(false);
+        }
     }
 
     public void TouchSideWall() {
         if (isPlayerCharging) {
-            ChargeWhite(true, 15);
+            ChargeWhite(true, 9);
         }
         if (isEnemyCharging) {
-            ChargeWhite(false, 15);
+            ChargeWhite(false, 9);
         }
     }
 
@@ -125,6 +164,16 @@ public class CommandManager : MonoBehaviour {
             ViewManager.instance.playingView.SetWhiteGuage(true, myChargingPoint);
         } else {
             enemyChargingPoint += point;
+            ViewManager.instance.playingView.SetWhiteGuage(false, myChargingPoint);
+        }
+    }
+
+    private void ResetWhite(bool isMyPoint) {
+        if (isMyPoint) {
+            myChargingPoint = 0;
+            ViewManager.instance.playingView.SetWhiteGuage(true, myChargingPoint);
+        } else {
+            enemyChargingPoint = 0;
             ViewManager.instance.playingView.SetWhiteGuage(false, myChargingPoint);
         }
     }
@@ -158,6 +207,10 @@ public class CommandManager : MonoBehaviour {
         }
 
         return -1;
+    }
+
+    private void EnemySkill() {
+        Debug.Log("enemy can put skill");
     }
 
     private static bool CompareLastElements(List<int> Command, List<int> Inputed) {

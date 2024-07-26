@@ -77,7 +77,6 @@ public class SkillGuage : MonoBehaviour {
 
     public void SetWhite(float chargingPoint) {
         float sumPoint = currentSkillPoint + chargingPoint;
-        Debug.Log(sumPoint);
         if (sumPoint >= 300) {
             for (int i = 0; i < 3; i++) {
                 whiteMasks[i].rectTransform.localPosition = whiteMasksInitialPosition[i];
