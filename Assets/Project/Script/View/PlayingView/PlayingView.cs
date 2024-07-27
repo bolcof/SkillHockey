@@ -10,6 +10,7 @@ public class PlayingView : MonoBehaviour {
     public CommandLinePanel commandLinePanel;
     [SerializeField] List<SkillGuide> skillGuides = new List<SkillGuide>();
     [SerializeField] private SkillGuage mySkillGuage, enemySkillGuage;
+    [SerializeField] private CutIn cutInElements;
 
     public void Set() {
         myPlayerInfo.Set(GameInfoManager.instance.currentSelectCharactorId);
@@ -25,6 +26,8 @@ public class PlayingView : MonoBehaviour {
 
         mySkillGuage.SetFirst();
         enemySkillGuage.SetFirst();
+
+        cutInElements.DisableElements();
     }
 
     public void setTime(float currentTime) {
@@ -45,5 +48,9 @@ public class PlayingView : MonoBehaviour {
         } else {
             enemySkillGuage.SetFill(point);
         }
+    }
+
+    public void CastSkill(bool isPlayer, int level, float gameSpeed) {
+        cutInElements.CastSkill(isPlayer, level, gameSpeed);
     }
 }

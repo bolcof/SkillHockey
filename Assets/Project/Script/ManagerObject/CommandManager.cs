@@ -225,6 +225,7 @@ public class CommandManager : MonoBehaviour {
             if (mySkillPoint >= 300) {
                 mySkillPoint = 0;
                 ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
+                ViewManager.instance.playingView.CastSkill(true, 1, 0.025f);
                 HitStop(3f, 0.025f);
                 Debug.Log("Skill Lv3");
             }
@@ -232,6 +233,7 @@ public class CommandManager : MonoBehaviour {
             if (mySkillPoint >= 200) {
                 mySkillPoint -= 200;
                 ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
+                ViewManager.instance.playingView.CastSkill(true, 2, 0.05f);
                 HitStop(1.2f, 0.05f);
                 Debug.Log("Skill Lv2");
             }
@@ -239,6 +241,7 @@ public class CommandManager : MonoBehaviour {
             if (mySkillPoint >= 100) {
                 mySkillPoint -= 100;
                 ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
+                ViewManager.instance.playingView.CastSkill(true, 1, 0.05f);
                 HitStop(1.2f, 0.05f);
                 Debug.Log("Skill Lv1");
             }
