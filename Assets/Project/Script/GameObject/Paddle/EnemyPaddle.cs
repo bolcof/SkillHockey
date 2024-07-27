@@ -46,6 +46,22 @@ public class EnemyCpuPaddle : MonoBehaviour {
         }
     }
 
+    private void ChangeMode(CpuMode nextMode) {
+        currentCpuMode = nextMode;
+
+        switch (currentCpuMode) {
+            case CpuMode.StopOnGate:
+                transform.position = new Vector3(gatePos.x, transform.position.y, gatePos.y);
+                break;
+            case CpuMode.StopOnCenter:
+                transform.position = new Vector3(centerPos.x, transform.position.y, centerPos.y);
+                break;
+            case CpuMode.Random:
+                RandomMoveStart();
+                break;
+        }
+    }
+
     private void RandomMoveStart() {
         transform.DOMove(new Vector3(Random.Range(xRange.x, xRange.y), transform.position.y, (Random.Range(zRange.x, zRange.y))), Random.Range(0.3f, 0.7f))
             .OnComplete(RandomMoveStart);
