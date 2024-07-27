@@ -15,4 +15,9 @@ public class CharactorSelect_PlayerInfoFrame : MonoBehaviour {
         currentImage.sprite = DataHolder.instance.charactors[id].selectingImage;
         currentName.text = DataHolder.instance.charactors[id].name;
     }
+
+    public void HoverLockedCharactor() {
+        currentImage.enabled = false;
+        currentName.text = "??????";
+    }
 }
