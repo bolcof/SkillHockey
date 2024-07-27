@@ -173,13 +173,10 @@ public class CommandManager : MonoBehaviour {
     }
 
     public void TouchSideWall() {
-        Debug.Log("touch Side");
         if (isPlayerCharging) {
-            Debug.Log("Charge my white");
             ChargeWhite(true, 9);
         }
         if (isEnemyCharging) {
-            Debug.Log("Charge enemy white");
             ChargeWhite(false, 9);
         }
     }
@@ -225,11 +222,23 @@ public class CommandManager : MonoBehaviour {
     private int SearchSkill() {
 
         if (CompareLastElements(GameInfoManager.instance.currentSkillData[2].command, inputedAllows)) {
-            Debug.Log("Skill Lv3");
+            if (mySkillPoint >= 300) {
+                mySkillPoint = 0;
+                ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
+                Debug.Log("Skill Lv3");
+            }
         } else if (CompareLastElements(GameInfoManager.instance.currentSkillData[1].command, inputedAllows)) {
-            Debug.Log("Skill Lv2");
+            if (mySkillPoint >= 200) {
+                mySkillPoint -= 200;
+                ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
+                Debug.Log("Skill Lv2");
+            }
         } else if (CompareLastElements(GameInfoManager.instance.currentSkillData[0].command, inputedAllows)) {
-            Debug.Log("Skill Lv1");
+            if (mySkillPoint >= 100) {
+                mySkillPoint -= 100;
+                ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
+                Debug.Log("Skill Lv1");
+            }
         }
 
         return -1;
