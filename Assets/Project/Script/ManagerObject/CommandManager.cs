@@ -89,6 +89,9 @@ public class CommandManager : MonoBehaviour {
         ResetKeys();
         canPlayerActuateSkill = false;
 
+        //Enemy Skill
+        canEnemyActuateSkill = true;
+
         //Player Charge
         isPlayerCharging = true;
         if (isPlayerPointActivate) {
@@ -100,14 +103,42 @@ public class CommandManager : MonoBehaviour {
         isPlayerPointActivate = false;
 
         //Enemy Charge
-        isEnemyCharging = true;
+        isEnemyCharging = false;
         isEnemyPointActivate = true;
+    }
+
+    public void TouchEnemyPaddle() {
+        //Player Skill
+        canPlayerActuateSkill = true;
+
+        //Enemy Skill
+        if (canEnemyActuateSkill) {
+            EnemySkill();
+        }
+        canEnemyActuateSkill = false;
+
+        //Player Charge
+        isPlayerCharging = false;
+        isPlayerPointActivate = true;
+
+        //Enemy Charge
+        isEnemyCharging = true;
+        if (isEnemyPointActivate) {
+            ApplyWhite(false);
+        } else {
+            ResetWhite(false);
+        }
+        ChargeWhite(false, 5);
+        isEnemyPointActivate = false;
     }
 
     public void TouchMyWall() {
         //Player Skill
         ResetKeys();
         canPlayerCommandInput = false;
+
+        //Enemy Skill
+        canEnemyActuateSkill = true;
 
         //Player Charge
         isPlayerCharging = false;
@@ -119,39 +150,26 @@ public class CommandManager : MonoBehaviour {
         isPlayerPointActivate = false;
 
         //Enemy Charge
-        isEnemyCharging = true;
-    }
-
-    public void TouchEnemyPaddle() {
-        //Player Skill
-        canPlayerActuateSkill = true;
-
-        //Enemy Skill
-        EnemySkill();
-
-        //Player Charge
-        isPlayerPointActivate = true;
-        isPlayerCharging = false;
-
-        //Enemy Charge
-        isEnemyCharging = true;
-        if (isEnemyPointActivate) {
-            ApplyWhite(false);
-        }
-        ChargeWhite(false, 5);
+        isEnemyPointActivate = true;
     }
 
     public void TouchEnemyWall() {
         //Player Skill
         canPlayerActuateSkill = true;
 
+        //Enemy Skill
+
         //Player Charge
         isPlayerPointActivate = true;
 
         //Enemy Charge
+        isEnemyCharging = false;
         if (isEnemyPointActivate) {
             ApplyWhite(false);
+        } else {
+            ResetWhite(false);
         }
+        isEnemyPointActivate = false;
     }
 
     public void TouchSideWall() {
@@ -169,7 +187,7 @@ public class CommandManager : MonoBehaviour {
             ViewManager.instance.playingView.SetWhiteGuage(true, myChargingPoint);
         } else {
             enemyChargingPoint += point;
-            ViewManager.instance.playingView.SetWhiteGuage(false, myChargingPoint);
+            ViewManager.instance.playingView.SetWhiteGuage(false, enemyChargingPoint);
         }
     }
 
@@ -192,11 +210,11 @@ public class CommandManager : MonoBehaviour {
             myChargingPoint = 0;
             ViewManager.instance.playingView.ApplyGuage(true, mySkillPoint);
         } else {
-            enemySkillPoint += enemySkillPoint;
+            enemySkillPoint += enemyChargingPoint;
             if (enemySkillPoint >= 300) {
                 enemySkillPoint = 300;
             }
-            enemySkillPoint = 0;
+            enemyChargingPoint = 0;
             ViewManager.instance.playingView.ApplyGuage(false, enemySkillPoint);
         }
     }
@@ -204,11 +222,23 @@ public class CommandManager : MonoBehaviour {
     private int SearchSkill() {
 
         if (CompareLastElements(GameInfoManager.instance.currentSkillData[2].command, inputedAllows)) {
-            Debug.Log("Skill Lv3");
+            if (mySkillPoint >= 300) {
+                mySkillPoint = 0;
+                ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
+                Debug.Log("Skill Lv3");
+            }
         } else if (CompareLastElements(GameInfoManager.instance.currentSkillData[1].command, inputedAllows)) {
-            Debug.Log("Skill Lv2");
+            if (mySkillPoint >= 200) {
+                mySkillPoint -= 200;
+                ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
+                Debug.Log("Skill Lv2");
+            }
         } else if (CompareLastElements(GameInfoManager.instance.currentSkillData[0].command, inputedAllows)) {
-            Debug.Log("Skill Lv1");
+            if (mySkillPoint >= 100) {
+                mySkillPoint -= 100;
+                ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
+                Debug.Log("Skill Lv1");
+            }
         }
 
         return -1;
