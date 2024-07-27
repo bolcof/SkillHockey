@@ -425,18 +425,15 @@ MonoBehaviour:
   - {fileID: 2324413641174098828}
   - {fileID: 4770289421101063619}
   - {fileID: 4609259634839040362}
+  whiteMasksInitialPosition: []
+  whiteFillsInitialPosition: []
   guageSprites:
-  - {fileID: 21300000, guid: 0abbafa2a11c5154fb8997bfb6df1489, type: 3}
+  - {fileID: 21300000, guid: b4fa8bdcd2c08f443ab37d85abb0179c, type: 3}
   - {fileID: 21300000, guid: 8f7336cdeb476e94b8604f28cbf39482, type: 3}
   - {fileID: 21300000, guid: 0abbafa2a11c5154fb8997bfb6df1489, type: 3}
   - {fileID: 21300000, guid: c79da5a0b0f1e6c4c8db485de5580a32, type: 3}
   guageLabel: {fileID: 9177367887020653294}
   barWidth: 136
-  skillPoint: 0
-  chargingPoint: 0
-  isDebug: 0
-  testSkillPoint: 0
-  testChargingPoint: 0
 --- !u!1 &4772176494113594786
 GameObject:
   m_ObjectHideFlags: 0
