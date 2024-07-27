@@ -11,14 +11,19 @@ public class PaddleController : MonoBehaviour {
 
     private int screenWidth, screenHeight;
 
+    public bool isSlowing;
+
     void Start() {
         rb = GetComponent<Rigidbody>();
         screenWidth = Screen.width;
         screenHeight = Screen.height;
+        isSlowing = false;
     }
 
     void Update() {
-        MoveWithMouse();
+        if (!isSlowing) {
+            MoveWithMouse();
+        }
     }
 
     void MoveWithMouse() {

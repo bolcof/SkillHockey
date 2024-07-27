@@ -225,18 +225,21 @@ public class CommandManager : MonoBehaviour {
             if (mySkillPoint >= 300) {
                 mySkillPoint = 0;
                 ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
+                HitStop(3f, 0.025f);
                 Debug.Log("Skill Lv3");
             }
         } else if (CompareLastElements(GameInfoManager.instance.currentSkillData[1].command, inputedAllows)) {
             if (mySkillPoint >= 200) {
                 mySkillPoint -= 200;
                 ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
+                HitStop(1.2f, 0.05f);
                 Debug.Log("Skill Lv2");
             }
         } else if (CompareLastElements(GameInfoManager.instance.currentSkillData[0].command, inputedAllows)) {
             if (mySkillPoint >= 100) {
                 mySkillPoint -= 100;
                 ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
+                HitStop(1.2f, 0.05f);
                 Debug.Log("Skill Lv1");
             }
         }
@@ -246,6 +249,22 @@ public class CommandManager : MonoBehaviour {
 
     private void EnemySkill() {
         Debug.Log("enemy can put skill : " + ((int)enemySkillPoint / 100).ToString());
+    }
+
+    private void HitStop(float duration, float speed) {
+        StartCoroutine(SlowCoroutine(duration, speed));
+    }
+
+    private IEnumerator SlowCoroutine(float duration, float speed) {
+        Time.timeScale = speed;
+        Time.fixedDeltaTime = 0.02f * speed;
+        GameObjectManager.instance.playerPaddle.isSlowing = true;
+        GameObjectManager.instance.enemyCpuPaddle.isSlowing = true;
+        yield return new WaitForSecondsRealtime(duration);
+        Time.timeScale = 1.0f;
+        Time.fixedDeltaTime = 0.02f;
+        GameObjectManager.instance.playerPaddle.isSlowing = false;
+        GameObjectManager.instance.enemyCpuPaddle.isSlowing = false;
     }
 
     private static bool CompareLastElements(List<int> Command, List<int> Inputed) {

@@ -10,6 +10,8 @@ public class EnemyCpuPaddle : MonoBehaviour {
     [SerializeField] private Vector2 gatePos, centerPos;
     [SerializeField] private float perfectLine;
 
+    public bool isSlowing;
+
     public enum CpuMode {
         StopOnGate,
         StopOnCenter,
@@ -34,15 +36,18 @@ public class EnemyCpuPaddle : MonoBehaviour {
                 RandomMoveStart();
                 break;
         }
+        isSlowing = false;
     }
 
     private void Update() {
-        switch (currentCpuMode) {
-            case CpuMode.Perfect:
-                if (GameObjectManager.instance.currentPack != null) {
-                    transform.position = new Vector3(GameObjectManager.instance.currentPack.transform.position.x, transform.position.y, perfectLine);
-                }
-                break;
+        if (!isSlowing) {
+            switch (currentCpuMode) {
+                case CpuMode.Perfect:
+                    if (GameObjectManager.instance.currentPack != null) {
+                        transform.position = new Vector3(GameObjectManager.instance.currentPack.transform.position.x, transform.position.y, perfectLine);
+                    }
+                    break;
+            }
         }
     }
 
