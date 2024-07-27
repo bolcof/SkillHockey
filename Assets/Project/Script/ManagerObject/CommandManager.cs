@@ -245,7 +245,7 @@ public class CommandManager : MonoBehaviour {
     }
 
     private void EnemySkill() {
-        Debug.Log("enemy can put skill : " + ((int)enemyChargingPoint / 100).ToString());
+        Debug.Log("enemy can put skill : " + ((int)enemySkillPoint / 100).ToString());
     }
 
     private static bool CompareLastElements(List<int> Command, List<int> Inputed) {
