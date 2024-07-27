@@ -12,6 +12,7 @@ public class CharactorSelect_PlayerInfoFrame : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI currentName;
 
     public void ChangeHighlightedCharactor(int id) {
+        currentImage.enabled = true;
         currentImage.sprite = DataHolder.instance.charactors[id].selectingImage;
         currentName.text = DataHolder.instance.charactors[id].name;
     }
