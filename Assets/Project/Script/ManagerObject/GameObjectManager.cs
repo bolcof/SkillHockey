@@ -8,6 +8,9 @@ public class GameObjectManager : MonoBehaviour {
     [SerializeField] private GameObject packObject;
     public PackBehaviour currentPack;
 
+    public PaddleController playerPaddle;
+    public EnemyCpuPaddle enemyCpuPaddle;
+
     void Awake() {
         if (instance == null) {
             instance = this;

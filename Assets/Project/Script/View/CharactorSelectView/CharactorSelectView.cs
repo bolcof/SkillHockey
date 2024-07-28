@@ -45,6 +45,7 @@ public class CharactorSelectView : MonoBehaviour {
     }
 
     public void HoverLockedCharactor(int charaId) {
+        playerInfoFrame.HoverLockedCharactor();
         lockedInfo.gameObject.SetActive(true);
         lockedInfo.Set(charaId);
         for (int i = 0; i < 3; i++) {
