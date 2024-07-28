@@ -3186,6 +3186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPaddle
       objectReference: {fileID: 0}
+    - target: {fileID: 8886559031352306461, guid: 1db2d5cf8fe22294b9b4302befaf7bd2, type: 3}
+      propertyPath: currentCpuMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
