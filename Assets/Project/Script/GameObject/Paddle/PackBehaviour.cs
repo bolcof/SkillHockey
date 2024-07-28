@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PackBehaviour : MonoBehaviour {
-    public float maxSpeed = 100f;
-    public float minSpeed = 1f;
+    public float maxSpeed;
+    public float minSpeed;
 
     private Rigidbody rb;
     [SerializeField] private float vel;
@@ -41,9 +41,11 @@ public class PackBehaviour : MonoBehaviour {
                 switch (collision.gameObject.name) {
                     case "PlayerPaddle":
                         CommandManager.instance.TouchMyPaddle();
+                        isMyPack = true;
                         break;
                     case "EnemyPaddle":
                         CommandManager.instance.TouchEnemyPaddle();
+                        isMyPack = false;
                         break;
                 }
                 break;
@@ -51,10 +53,12 @@ public class PackBehaviour : MonoBehaviour {
                 switch (collision.gameObject.name) {
                     case "MyWall_Left":
                     case "MyWall_Right":
+                        isMyPack = true;
                         CommandManager.instance.TouchMyWall();
                         break;
                     case "EnemyWall_Left":
                     case "EnemyWall_Right":
+                        isMyPack = false;
                         CommandManager.instance.TouchEnemyWall();
                         break;
                     case "SideWall_Left":
@@ -72,6 +76,7 @@ public class PackBehaviour : MonoBehaviour {
                 } else if (collision.gameObject.name == "EnemyGoal") {
                     LifeManager.instance.EnemyDamage();
                 }
+                isMyPack = false;
                 CommandManager.instance.PackGoaled();
                 break;
         }
