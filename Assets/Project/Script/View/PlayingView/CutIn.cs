@@ -27,9 +27,9 @@ public class CutIn : MonoBehaviour {
 
         var backgrouneSequence = DOTween.Sequence();
         backgrouneSequence
-            .Append(background.DOFade(0.8f, 0.25f * gameSpeed))
-            .AppendInterval(0.6f * gameSpeed)
-            .Append(background.DOFade(0.0f, 0.15f * gameSpeed));
+            .Append(background.DOFade(0.8f, 2.5f * gameSpeed))
+            .AppendInterval(6f * gameSpeed)
+            .Append(background.DOFade(0.0f, 1.5f * gameSpeed));
         backgrouneSequence.Play();
 
         if(isPlayer) {
@@ -47,9 +47,9 @@ public class CutIn : MonoBehaviour {
 
             var frameSequence = DOTween.Sequence();
             frameSequence
-                .Append(frameP1.DOScaleY(1.0f, 0.2f * gameSpeed).SetDelay(0.1f * gameSpeed).SetEase(Ease.OutElastic))
-                .AppendInterval(0.65f * gameSpeed)
-                .Append(frameP1.DOScaleY(0.0f, 0.05f * gameSpeed));
+                .Append(frameP1.DOScaleY(1.0f, 2f * gameSpeed).SetDelay(1f * gameSpeed).SetEase(Ease.OutElastic))
+                .AppendInterval(6.5f * gameSpeed)
+                .Append(frameP1.DOScaleY(0.0f, 0.5f * gameSpeed));
             frameSequence.Play();
 
         } else {
@@ -67,9 +67,9 @@ public class CutIn : MonoBehaviour {
 
             var frameSequence = DOTween.Sequence();
             frameSequence
-                .Append(frameP2.DOScaleY(1.0f, 0.2f * gameSpeed).SetDelay(0.1f * gameSpeed).SetEase(Ease.OutElastic))
-                .AppendInterval(0.65f * gameSpeed)
-                .Append(frameP2.DOScaleY(0.0f, 0.05f * gameSpeed));
+                .Append(frameP2.DOScaleY(1.0f, 2f * gameSpeed).SetDelay(1f * gameSpeed).SetEase(Ease.OutElastic))
+                .AppendInterval(6.5f * gameSpeed)
+                .Append(frameP2.DOScaleY(0.0f, 0.5f * gameSpeed));
             frameSequence.Play();
 
         }
