@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6353928090529897243}
   - component: {fileID: 6773272748162160330}
   - component: {fileID: 5410366102617268911}
+  - component: {fileID: 8947636704355459316}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -132,6 +133,35 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8947636704355459316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961626975463428046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 191393229012206260}
+          m_TargetAssemblyTypeName: TitleView, Assembly-CSharp
+          m_MethodName: HoverButton
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1159394554806949224
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +377,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce20e04a7fba854cbfa5787cdc08878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightPositions:
+  - 378
+  - 288
+  - 198
+  highlightBar: {fileID: 5474743082982575959}
 --- !u!1 &4878814511483186563
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +394,7 @@ GameObject:
   - component: {fileID: 224421802430840421}
   - component: {fileID: 8175656647301224541}
   - component: {fileID: 1365988842141494960}
+  - component: {fileID: 1739496895289864645}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -479,6 +515,35 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1739496895289864645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4878814511483186563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 191393229012206260}
+          m_TargetAssemblyTypeName: TitleView, Assembly-CSharp
+          m_MethodName: HoverButton
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5154277366178416203
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +578,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 115, y: -162}
+  m_AnchoredPosition: {x: 115, y: -252}
   m_SizeDelta: {x: 527, y: 75}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &7755948766242192814
@@ -571,7 +636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8047181378764475801
 RectTransform:
   m_ObjectHideFlags: 0
@@ -716,6 +781,7 @@ GameObject:
   - component: {fileID: 8124321328791226496}
   - component: {fileID: 4237301764041370250}
   - component: {fileID: 1801172701765953936}
+  - component: {fileID: 3397618503362146034}
   m_Layer: 5
   m_Name: OptionButton
   m_TagString: Untagged
@@ -739,7 +805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 153, y: -253}
+  m_AnchoredPosition: {x: 153, y: -255}
   m_SizeDelta: {x: 172, y: 57}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &8124321328791226496
@@ -836,3 +902,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3397618503362146034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9138162005542920841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 191393229012206260}
+          m_TargetAssemblyTypeName: TitleView, Assembly-CSharp
+          m_MethodName: HoverButton
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
