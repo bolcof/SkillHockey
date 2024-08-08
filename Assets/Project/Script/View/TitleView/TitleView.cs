@@ -10,13 +10,30 @@ public class TitleView : MonoBehaviour {
     [SerializeField] private Image highlightBar;
 
     public void Start() {
-        Debug.Log(highlightBar.GetComponent<RectTransform>().position);
+    }
+
+    private void OnEnable() {
         highlightBar.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
     }
 
     public void PushStart() {
-        highlightBar.DOFade(0.0f, 0.2f);
-        TransitCharactorSelectView();
+        var seq = DOTween.Sequence();
+        seq.Append(highlightBar.DOFade(0.25f, 0.06f))
+            .Append(highlightBar.DOFade(1.0f, 0.06f))
+            .AppendInterval(0.03f)
+            .Append(highlightBar.DOFade(0.25f, 0.06f))
+            .Append(highlightBar.DOFade(1.0f, 0.06f))
+            .AppendInterval(0.03f)
+            .Append(highlightBar.DOFade(0.25f, 0.06f))
+            .Append(highlightBar.DOFade(1.0f, 0.06f))
+            .AppendInterval(0.03f)
+            .Append(highlightBar.DOFade(0.25f, 0.06f))
+            .Append(highlightBar.DOFade(1.0f, 0.06f))
+            .AppendInterval(0.03f)
+            .Append(highlightBar.DOFade(0.25f, 0.06f))
+            .Append(highlightBar.DOFade(1.0f, 0.06f))
+            .AppendInterval(0.88f)
+            .AppendCallback(() => { TransitCharactorSelectView(); });
     }
 
     private void TransitCharactorSelectView() {
