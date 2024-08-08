@@ -68,6 +68,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   packObject: {fileID: 7575077283991022753, guid: ea35bee8eeea1c749be9dfde5fd7bda4, type: 3}
   currentPack: {fileID: 0}
+  playerPaddle: {fileID: 0}
+  enemyCpuPaddle: {fileID: 0}
 --- !u!114 &2528112651135547439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,34 +118,35 @@ MonoBehaviour:
     selectingImage: {fileID: 21300000, guid: 5bb915bea021e1147a519ad9d7986c3a, type: 3}
     lockedMessage: "\u672A\u89E3\u7981\u30AD\u30E3\u30E9\u30AF\u30BF\u30FC \u958B\u767A\u306E\u5FDC\u63F4\u304A\u9858\u3044\u3057\u307E\u3059\uFF01"
   skillDatas:
-  - name: "A \u306E\u30EC\u30D9\u30EB \uFF11"
+  - name: "\u30B8\u30E3\u30A4\u30A2\u30F3\u30C8\u30B0\u30EA\u30C3\u30D7"
     command: 000000000000000000000000
-    discription: "\u3046\u3048\u3046\u3048\u3046\u3048"
+    discription: "\u3057\u3070\u3089\u304F\u306E\u9593\u3001\u81EA\u5206\u306E\u30DE\u30EC\u30C3\u30C8\u304C\u5DE8\u5927\u5316\u3059\u308B"
     icon: {fileID: 21300000, guid: 8f7336cdeb476e94b8604f28cbf39482, type: 3}
     level: 1
-  - name: "\u30EC\u30C3\u30C4\u30B4\u30FC"
+  - name: "\u30D6\u30EA\u30C3\u30C4\u30C9\u30E9\u30A4\u30D6"
     command: 01000000010000000100000001000000
-    discription: "\u30A6\u30AA\u30FC\u30FC\u30FC"
+    discription: "\u3057\u3070\u3089\u304F\u306E\u9593\u3001\u76F8\u624B\u5074\u306B\u30D1\u30C3\u30AF\u304C\u52D5\u304F\u6642\u306E\u901F\u5EA6\u304C\u4E0A\u304C\u308B\u3002"
     icon: {fileID: 21300000, guid: 0abbafa2a11c5154fb8997bfb6df1489, type: 3}
     level: 2
-  - name: "\u3072\u3063\u3055\u3064\u308F\u3056"
+  - name: "\u30A2\u30B5\u30EB\u30C8\u30D5\u30E5\u30FC\u30EA\u30FC"
     command: 020000000300000002000000030000000200000003000000
-    discription: "\u30AB\u30BF\u30AB\u30BF\u30AB\u30BF"
+    discription: "\u81EA\u5206\u306E\u30B4\u30FC\u30EB\u306B\u306F\u5165\u3089\u306A\u3044\u30D1\u30C3\u30AF\u304C\u51FA\u73FE\u3059\u308B\u3002\n\u30B4\u30FC\u30EB\u306B\u5165\u308B\u304B\u3001\u3057\u3070\u3089\u304F\u7D4C\u3064\u3068\u6D88\u6EC5\u3059\u308B\u3002"
     icon: {fileID: 21300000, guid: c79da5a0b0f1e6c4c8db485de5580a32, type: 3}
     level: 3
-  - name: B - Level1
+  - name: "\u30C4\u30A4\u30F3\u30B7\u30A7\u30FC\u30C9"
     command: 030000000300000003000000
-    discription: "\u30EF\u30FC\u30AD\u30F3\u30B0\u30D7\u30A2"
+    discription: "\u5C11\u3057\u306E\u9593\u3001\u81EA\u5206\u306E\u30DE\u30EC\u30C3\u30C8\u306E\u30B3\u30D4\u30FC\u304C\u73FE\u308C\u308B\u3002\n\u30B3\u30D4\u30FC\u306F\u81EA\u5206\u306E\u30DE\u30EC\u30C3\u30C8\u3068\u5DE6\u53F3\u5BFE\u79F0\u306A\u52D5\u304D\u3092\u3059\u308B\u3002"
     icon: {fileID: 21300000, guid: 47a63e4e42964884d80f2bde729ff16a, type: 3}
     level: 1
-  - name: B - Level2
+  - name: "\u30B7\u30E3\u30C9\u30A6\u30F4\u30A7\u30FC\u30EB"
     command: 00000000010000000200000003000000
-    discription: "\u6539\u884C\u3069\u3046\u3084\u308B\u3093\u3060\u3063\u3051"
+    discription: "\u3057\u3070\u3089\u304F\u306E\u9593\u3001\u81EA\u5206\u306E\u30DE\u30EC\u30C3\u30C8\u306F\u76F8\u624B\u304B\u3089\u898B\u3048\u306A\u304F\u306A\u308B\u3002"
     icon: {fileID: 21300000, guid: e36f9065a600df4439a6edcc71987381, type: 3}
     level: 2
-  - name: B - Special Skill
+  - name: "\u30DF\u30B9\u30C6\u30EA\u30FC\u30D1\u30C3\u30AF"
     command: 000000000100000000000000010000000000000001000000
-    discription: a d a d a d
+    discription: "\u81EA\u5206\u306B\u3060\u3051\u898B\u5206\u3051\u3089\u3051\u308B\u30C0\u30DF\u30FC\u306E\u30D1\u30C3\u30AF\u304C
+      5 \u500B\u51FA\u73FE\u3059\u308B\u3002\n\u30C0\u30DF\u30FC\u306E\u30D1\u30C3\u30AF\u306F\u30B4\u30FC\u30EB\u306B\u306F\u5165\u3089\u305A\u3001\u672C\u7269\u306E\u30D1\u30C3\u30AF\u306B\u306F\u885D\u7A81\u305B\u305A\u53CD\u5C04\u3057\u7D9A\u3051\u308B\u3002"
     icon: {fileID: 21300000, guid: bbde306d1bf835c468cd4ff2b2fdad4c, type: 3}
     level: 3
 --- !u!114 &5620924697966876232
@@ -158,12 +161,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba56990606f84ef088e9cb4b3c4bb72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInput: 0
-  enemyTouched: 0
   maxKeyInput: 13
   inputedAllows: 
-  mySkillGuage: 0
-  enemySkillGuage: 0
+  mySkillPoint: 0
+  myChargingPoint: 0
+  enemySkillPoint: 0
+  enemyChargingPoint: 0
 --- !u!114 &3458643618484545188
 MonoBehaviour:
   m_ObjectHideFlags: 0
