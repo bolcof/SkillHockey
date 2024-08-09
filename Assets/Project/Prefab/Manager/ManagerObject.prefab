@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5620924697966876232}
   - component: {fileID: 3458643618484545188}
   - component: {fileID: 8189058464577316182}
+  - component: {fileID: 3384059368266178250}
   m_Layer: 0
   m_Name: ManagerObject
   m_TagString: Untagged
@@ -68,6 +69,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   packObject: {fileID: 7575077283991022753, guid: ea35bee8eeea1c749be9dfde5fd7bda4, type: 3}
   currentPack: {fileID: 0}
+  playerPaddle: {fileID: 0}
+  enemyCpuPaddle: {fileID: 0}
 --- !u!114 &2528112651135547439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,12 +161,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba56990606f84ef088e9cb4b3c4bb72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInput: 0
-  enemyTouched: 0
   maxKeyInput: 13
   inputedAllows: 
-  mySkillGuage: 0
-  enemySkillGuage: 0
+  mySkillPoint: 0
+  myChargingPoint: 0
+  enemySkillPoint: 0
+  enemyChargingPoint: 0
 --- !u!114 &3458643618484545188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,5 +192,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17b615cc3ee12734d96fe1876d568543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3384059368266178250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3184124279708434805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b044878986a4fa192e545b86144fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

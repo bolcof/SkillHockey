@@ -3248,6 +3248,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: S001_BigPlayerPaddle
       objectReference: {fileID: 0}
+    - target: {fileID: 5192183393940594728, guid: c6236daa2bac949d8806d5db8d3bb64b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
