@@ -4,11 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Paddle
   - Pack
   - Floor
   - Goal
   - Wall
+  - PlayerPaddle
+  - EnemyPaddle
+  - Pack_NoGoal
+  - Pack_EnemyGoalOnly
+  - Pack_MyGoalOnly
+  - EnemyGoalBlock
+  - PlayerGoalBlock
   layers:
   - Default
   - TransparentFX

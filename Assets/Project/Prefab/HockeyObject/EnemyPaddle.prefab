@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8886559031352306461}
   m_Layer: 0
   m_Name: EnemyPaddle
-  m_TagString: Paddle
+  m_TagString: EnemyPaddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,6 +177,7 @@ MonoBehaviour:
   gatePos: {x: 0, y: 10.5}
   centerPos: {x: 0, y: 2.5}
   perfectLine: 9.3
+  isSlowing: 0
   currentCpuMode: 3
 --- !u!1001 &6064560499461312735
 PrefabInstance:

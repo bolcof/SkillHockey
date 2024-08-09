@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6633336550954845692}
   m_Layer: 0
   m_Name: PlayerPaddle
-  m_TagString: Paddle
+  m_TagString: PlayerPaddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,6 +152,7 @@ MonoBehaviour:
   xRange: {x: -7.6, y: 7.6}
   zRange: {x: -11.45, y: -0.6}
   targetPosition: {x: 0, y: 0, z: 0}
+  isSlowing: 0
 --- !u!136 &6633336550954845692
 CapsuleCollider:
   m_ObjectHideFlags: 0
