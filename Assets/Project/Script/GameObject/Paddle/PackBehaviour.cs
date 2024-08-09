@@ -33,21 +33,19 @@ public class PackBehaviour : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         switch (collision.gameObject.tag) {
-            case "Paddle":
-                Rigidbody rigidbody = GetComponent<Rigidbody>();
-                if (rigidbody.velocity.magnitude != 0.0f) {
-                    rigidbody.velocity = rigidbody.velocity * 1.2f;
+            case "PlayerPaddle":
+                if (rb.velocity.magnitude != 0.0f) {
+                    rb.velocity = rb.velocity * 1.2f;
                 }
-                switch (collision.gameObject.name) {
-                    case "PlayerPaddle":
-                        CommandManager.instance.TouchMyPaddle();
-                        isMyPack = true;
-                        break;
-                    case "EnemyPaddle":
-                        CommandManager.instance.TouchEnemyPaddle();
-                        isMyPack = false;
-                        break;
+                CommandManager.instance.TouchMyPaddle();
+                isMyPack = true;
+                break;
+            case "EnemyPaddle":
+                if (rb.velocity.magnitude != 0.0f) {
+                    rb.velocity = rb.velocity * 1.2f;
                 }
+                CommandManager.instance.TouchEnemyPaddle();
+                isMyPack = false;
                 break;
             case "Wall":
                 switch (collision.gameObject.name) {
