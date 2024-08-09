@@ -221,29 +221,31 @@ public class CommandManager : MonoBehaviour {
 
     private int SearchSkill() {
 
+        List<int> currentPlayerSkillIds = DataHolder.instance.charactors[GameInfoManager.instance.currentSelectCharactorId].SkillIds;
+
         if (CompareLastElements(GameInfoManager.instance.currentSkillData[2].command, inputedAllows)) {
             if (mySkillPoint >= 300) {
                 mySkillPoint = 0;
                 ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
-                ViewManager.instance.playingView.CastSkill(true, 1, 0.025f);
+                ViewManager.instance.playingView.CastSkill(true, 3, 0.025f);
+                SkillManager.instance.CastSkill(currentPlayerSkillIds[2], true);
                 HitStop(3f, 0.025f);
-                Debug.Log("Skill Lv3");
             }
         } else if (CompareLastElements(GameInfoManager.instance.currentSkillData[1].command, inputedAllows)) {
             if (mySkillPoint >= 200) {
                 mySkillPoint -= 200;
                 ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
                 ViewManager.instance.playingView.CastSkill(true, 2, 0.005f);
+                SkillManager.instance.CastSkill(currentPlayerSkillIds[1], true);
                 HitStop(2.5f, 0.005f);
-                Debug.Log("Skill Lv2");
             }
         } else if (CompareLastElements(GameInfoManager.instance.currentSkillData[0].command, inputedAllows)) {
             if (mySkillPoint >= 100) {
                 mySkillPoint -= 100;
                 ViewManager.instance.playingView.SetWhiteGuage(true, mySkillPoint);
                 ViewManager.instance.playingView.CastSkill(true, 1, 0.005f);
+                SkillManager.instance.CastSkill(0, true);
                 HitStop(2.5f, 0.005f);
-                Debug.Log("Skill Lv1");
             }
         }
 
